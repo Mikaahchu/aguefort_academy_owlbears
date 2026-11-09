@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">Aguefort Academy Owlbears</a>
       <nav class="site-nav">
         <button>Menu</button>
         <ul class="menu" id="menu" popover>
@@ -27,29 +27,62 @@
   <main>
     <section class="svg-page">
       <header class="svg-intro">
-        <h1>Interaktiv SVG</h1>
-        <p>Indsæt din egen SVG og forbind den med punkterne nedenfor.</p>
+        <h1>THE PLAYBOOK</h1>
+        <h2>Every move matters. Every player has a purpose.</h2>
+        <p>Welcome to the tactical side of Bloodrush. Explore the field, reposition your players and discover how every
+          role contributes to victory.</p>
       </header>
 
       <section class="svg-layout">
-        <div class="svg-placeholder"></div>
+        <div class="svg-placeholder">
+          <svg class="bloodrush-svg" viewBox="0 0 750 400">
+            <use href="./svg/bloodrush_bane.svg#field_farve"></use>
+            <use href="./svg/bloodrush_bane.svg#field_outline"></use>
+            <use href="./svg/bloodrush_bane.svg#Layer_3"></use>
+            <use class="captain" href="./svg/bloodrush_bane.svg#captain_owlbears"></use>
+            <use class="striker" href="./svg/bloodrush_bane.svg#striker_owlbears"></use>
+            <use class="guardian" href="./svg/bloodrush_bane.svg#guardian_owlbear"></use>
+            <use class="tactician" href="./svg/bloodrush_bane.svg#tactician_owlbears"></use>
+            <use class="runner" href="./svg/bloodrush_bane.svg#runner_owlbears"></use>
+            <use href="./svg/bloodrush_bane.svg#cap_enemy"></use>
+            <use href="./svg/bloodrush_bane.svg#striker_enemy"></use>
+            <use href="./svg/bloodrush_bane.svg#striker_enemy-2"></use>
+            <use href="./svg/bloodrush_bane.svg#guardian_enemy"></use>
+            <use href="./svg/bloodrush_bane.svg#tactcian_enemy"></use>
+            <use href="./svg/bloodrush_bane.svg#runner_enemy"></use>
+          </svg>
+        </div>
 
         <article class="panel">
-          <h2>Udforsk eventet</h2>
+          <h2>Choose a Tactic</h2>
           <div class="accordion">
-            <!-- TODO: Lav om til details/summary -->
-            <div class="accordion-item">
-              <h3>Punkt 1</h3>
-              <p>Beskriv første område, aktivitet eller del af dit event.</p>
-            </div>
-            <div class="accordion-item">
-              <h3>Punkt 2</h3>
-              <p>Beskriv andet område, aktivitet eller del af dit event.</p>
-            </div>
-            <div class="accordion-item">
-              <h3>Punkt 3</h3>
-              <p>Beskriv tredje område, aktivitet eller del af dit event.</p>
-            </div>
+            <details class="accordion-item" name="tactics" data-position="offensive">
+              <summary>Offensive Rush</summary>
+              <div>
+                <p>
+                  An aggressive tactic where the Owlbears push
+                  forward to put pressure on the opposing team.
+                </p>
+              </div>
+            </details>
+            <details class="accordion-item" name="tactics" data-position="defensive">
+              <summary>Iron Wall</summary>
+              <div>
+                <p>
+                  A defensive tactic where the Owlbears form
+                  a strong line to protect their side of the field.
+                </p>
+              </div>
+            </details>
+            <details class="accordion-item" name="tactics" data-position="mindgame">
+              <summary>Mind Game</summary>
+              <div>
+                <p>
+                  An unpredictable tactic where the Owlbears
+                  change positions to confuse their opponents.
+                </p>
+              </div>
+            </details>
           </div>
         </article>
       </section>
@@ -58,7 +91,7 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p>Eventnavn</p>
+      <p>Aguefort Academy Owlbears</p>
       <p>Footer</p>
     </div>
   </footer>
