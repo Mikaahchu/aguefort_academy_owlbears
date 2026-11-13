@@ -492,6 +492,27 @@ main > * {
   overflow-wrap: anywhere;
 }
 
+/*profil farver*/
+.player-kit[data-position="captain"] .profile-status {
+  background-color: #c69225;
+}
+
+.player-kit[data-position="striker"] .profile-status {
+  background-color: #d50032;
+}
+
+.player-kit[data-position="guardian"] .profile-status {
+  background-color: #3274b8;
+}
+
+.player-kit[data-position="tactician"] .profile-status {
+  background-color: #4a895b;
+}
+
+.player-kit[data-position="runner"] .profile-status {
+  background-color: #9160b8;
+}
+
 /*DESKTOP*/
 @media (min-width: 800px) {
   .opsamling-page {
