@@ -332,3 +332,181 @@ main > * {
 .bloodrush-svg[data-position="mindgame"] .runner {
   transform: translate(180px, -60px);
 }
+
+/*OPSAMLINGSIDE*/
+/*Layout*/
+.opsamling-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/*intro*/
+.opsamling-intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.opsamling-intro h1 {
+  margin-bottom: 1rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+}
+
+.opsamling-intro p {
+  margin-bottom: 1rem;
+}
+
+/*player-kit*/
+.player-kit {
+  padding: 1.5rem;
+  background-color: #f5f1e6;
+  border: 2px solid #862633;
+  border-radius: 8px;
+}
+
+/*overskrift*/
+.kit-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.kit-header p {
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kit-header h2 {
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-size: 1.5rem;
+}
+
+/*trøje*/
+.jersey-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 2rem;
+}
+
+#player-jersey {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#jersey-name {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  width: 55%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Akshar", sans-serif;
+  font-size: clamp(0.8rem, 3vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/*profil*/
+.player-profile {
+  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #af95a6;
+  border-radius: 6px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-header p {
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-header h3 {
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+}
+
+.profile-status {
+  padding: 0.4rem 0.8rem;
+  background-color: #862633;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+/*oplysninger*/
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.profile-info {
+  padding: 1rem;
+  background-color: #f5f1e6;
+  border-radius: 4px;
+}
+
+.profile-info p {
+  margin-bottom: 0.3rem;
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-info span {
+  color: #3f2021;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/*pitch*/
+.profile-statement {
+  margin-top: 1.5rem;
+}
+
+.profile-statement p {
+  margin-bottom: 0.5rem;
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-statement span {
+  color: #3f2021;
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+/*DESKTOP*/
+@media (min-width: 800px) {
+  .opsamling-page {
+    padding: 4rem 2rem;
+  }
+
+  .player-kit {
+    padding: 2.5rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jersey-container {
+    max-width: 500px;
+  }
+}
