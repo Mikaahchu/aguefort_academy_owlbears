@@ -279,6 +279,7 @@ main > * {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 /*Forms*/
 
 /*Forms layout*/
@@ -499,8 +500,7 @@ main > * {
     width: fit-content;
     justify-self: end;
   }
-}
-
+=======
 /*svg animationer*/
 .bloodrush-svg .captain,
 .bloodrush-svg .striker,
@@ -509,7 +509,6 @@ main > * {
 .bloodrush-svg .runner {
   transition: transform 0.6s ease;
 }
-
 .bloodrush-svg[data-position="offensive"] .captain {
   transform: translate(100px, 0px);
 }
@@ -554,6 +553,7 @@ main > * {
 }
 .bloodrush-svg[data-position="mindgame"] .runner {
   transform: translate(180px, -60px);
+>>>>>>> origin/main
 }
 
 /*OPSAMLINGSIDE*/
