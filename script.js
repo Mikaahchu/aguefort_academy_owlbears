@@ -25,12 +25,12 @@ if (opsamlingPlaceholder) {
   // Eksempel: params.get("navn") henter værdien fra et formularfelt med name="navn".
 
   const fullname = params.get("fullname") || "New Player";
-  const year = params.get("year") || "freshman";
-  const experience = params.get("experience") || "beginner";
-  const position = params.get("position") || "striker";
+  const year = params.get("year") || "Freshman";
+  const experience = params.get("experience") || "Beginner";
+  const position = params.get("position") || "Striker";
   const strength = params.get("strength") || "5";
   const speed = params.get("speed") || "5";
-  const team = params.get("team") || "owlbears";
+  const team = params.get("team") || "Owlbears";
   const motivation =
     params.get("motivation") || "Ready to prove myself on the field!";
 
@@ -56,9 +56,9 @@ if (opsamlingPlaceholder) {
   const positions = ["captain", "striker", "guardian", "tactician", "runner"];
 
   if (years.includes(year) && positions.includes(position)) {
-    jersey.src = "./img/" + year + "_" + position + ".svg";
+    jersey.src = "/svg/svg_jersey/" + year + "_" + position + ".svg";
   } else {
-    jersey.src = "./img/freshman_striker.svg";
+    jersey.src = "/svg/svg_jersey/freshman_striker.svg";
   }
 
   jersey.alt = fullname + "'s Bloodrush jersey";
