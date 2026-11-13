@@ -279,6 +279,228 @@ main > * {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+/*Forms*/
+
+/*Forms layout*/
+.form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+}
+
+.form-placeholder {
+  display: grid;
+  gap: 2rem;
+}
+
+/*Forms intro*/
+.form-intro {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.form-intro h1 {
+  margin-bottom: 1rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+}
+
+.form-intro p {
+  margin-bottom: 0.75rem;
+  font-family: "Akshar", sans-serif;
+}
+
+/*Forms sections*/
+.form-section {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: #f5f1e6;
+  border: 1px solid #af95a6;
+  border-radius: 4px;
+  color: #3f2021;
+}
+
+.form-section > legend {
+  padding: 0 0.5rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/*Spørgsmål style*/
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form-group > label,
+.form-group > legend {
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+}
+
+.form-group > legend {
+  margin-bottom: 0.5rem;
+}
+
+/*Forms tekstfelter osv.*/
+.form-placeholder input[type="text"],
+.form-placeholder input[type="tel"],
+.form-placeholder select,
+.form-placeholder textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #fff;
+  border: 1px solid #af95a6;
+  border-radius: 3px;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+}
+
+.form-placeholder textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-placeholder input::placeholder,
+.form-placeholder textarea::placeholder {
+  color: #756b6d;
+}
+
+/*Hover*/
+.form-placeholder input[type="text"]:hover,
+.form-placeholder input[type="tel"]:hover,
+.form-placeholder select:hover,
+.form-placeholder textarea:hover {
+  border-color: #862633;
+}
+
+/*Radio og checkbox*/
+.form-placeholder .choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form-placeholder input[type="radio"],
+.form-placeholder input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+
+/*Sliders*/
+.form-placeholder input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+/*tekst*/
+.form-help {
+  margin: 0;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+/*Formularfelter*/
+.form-placeholder :focus-visible {
+  outline: 3px solid #d50032;
+  outline-offset: 3px;
+}
+
+/*validering*/
+.form-placeholder input:user-invalid,
+.form-placeholder select:user-invalid {
+  border-color: #b00020;
+}
+
+.error-message {
+  display: none;
+  margin: 0;
+  color: #b00020;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+.form-group:has(input:user-invalid) > .error-message,
+.form-group:has(select:user-invalid) > .error-message {
+  display: block;
+}
+
+/*submit knap*/
+.submit-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #d50032;
+  border: 1px solid #d50032;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #862633;
+  border-color: #862633;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/*forms desktop*/
+@media (min-width: 800px) {
+  .form-page {
+    padding: 4rem 2rem;
+  }
+
+  .form-section {
+    padding: 2rem;
+  }
+
+  .submit-button {
+    width: fit-content;
+    justify-self: end;
+  }
+=======
 /*svg animationer*/
 .bloodrush-svg .captain,
 .bloodrush-svg .striker,
@@ -331,4 +553,5 @@ main > * {
 }
 .bloodrush-svg[data-position="mindgame"] .runner {
   transform: translate(180px, -60px);
+>>>>>>> origin/main
 }
