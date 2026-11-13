@@ -499,6 +499,8 @@ main > * {
     width: fit-content;
     justify-self: end;
   }
+}
+
 /*svg animationer*/
 .bloodrush-svg .captain,
 .bloodrush-svg .striker,
