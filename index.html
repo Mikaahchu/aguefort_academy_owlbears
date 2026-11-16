@@ -4,7 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
   <title>Eventnavn</title>
+
   <link rel="stylesheet" href="./starter.css">
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,8 +26,8 @@
     <div class="header-content">
       <a class="site-logo" href="./">Eventnavn</a>
       <nav class="site-nav">
-        <button>Menu</button>
-        <ul class="menu" id="menu" popover>
+        <button class="menu-toggle" popovertarget="menu">Menu</button>
+        <ul class="nav-menu" id="menu" popover>
           <li><a href="./" aria-current="page">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
           <li><a href="./form.html">Formular</a></li>
@@ -24,14 +36,462 @@
     </div>
   </header>
 
-  <main></main>
+  <main>
+    <section class="matchstrip">
+
+      <div class="upcomingmatches">
+        <p class="section-label">Upcoming matches</p>
+      </div>
+
+      <div class="matches">
+
+        <div class="match-item">
+          <p class="match-opponent">Owlbears vs. Wyverns</p>
+          <p class="match-date">November 12 · 7 PM</p>
+          <p class="match-status1">Home game</p>
+        </div>
+
+        <div class="match-item">
+          <p class="match-opponent">Academy Rivalry Cup</p>
+          <p class="match-date">November 19 · 6 PM</p>
+          <p class="match-status2">Away game</p>
+        </div>
+
+        <div class="match-item">
+          <p class="match-opponent">Team Mimic vs. Team Imp</p>
+          <p class="match-date">November 26 · 7 PM</p>
+          <p class="match-status3">Friendly game</p>
+        </div>
+
+        <div class="match-more">
+          <a href="#.html" class="button">All matches</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="hero">
+      <img class="hero-background" src="./imgs/team_line.webp" alt="Team line">
+      <img class="hero-add-on" src="./imgs/hoot_growl2.webp" alt="Hoot growl">
+      <p class="hero-label">AGUEFORT ADVENTURE ACADEMY · ATHLETICS</p>
+      <h1>WELCOME TO BLOODRUSH</h1>
+      <p class="hero-description">Play hard. Hit harder. Make history. Bloodrush is not just a sport. It's strategy,
+        speed, teamwork and a
+        little bit of
+        chaos. Whether you're a seasoned player or a first-year adventurer, there's a place for you on the field.</p>
+      <div class="hero-buttons">
+        <a href="./form.html" class="button">
+          JOIN THE TEAM →
+        </a>
+        <a href="#popupteaser" class="button-outline">EXPLORE THE GAME</a>
+      </div>
+    </section>
+
+    <section class="whatisbloodrush">
+      <p class="section-label">ABOUT THE SPORT</p>
+      <h2>What is Bloodrush?</h2>
+      <p class="bloodrush-description">Bloodrush is a fast-paced fantasy team sport where athletic ability meets
+        tactical thinking. Players must
+        work together,
+        anticipate their opponents and make split-second decisions to gain the advantage.</p>
+      <p class="bloodrush-rules-heading">THREE RULES TO LIVE BY:</p>
+      <ul class="bloodrush-features">
+        <li>Trust your team.</li>
+        <li>Know your position.</li>
+        <li>Never underestimate your opponent.</li>
+      </ul>
+      <img class="bloodrush-image" src="./imgs/team_circle.webp" alt="Team circle">
+    </section>
+
+    <section class="popupteaser">
+      <p class="section-label">LATEST FROM THE OWLBEARS</p>
+      <h2>News & Updates</h2>
+
+      <article>
+        <div class="tryouts popup-card">
+          <img src="./imgs/bloodrush_player.webp" alt="Bloodrush player">
+          <p class="popup-category">TRY-OUTS!</p>
+          <p class="popup-subtitle">Join the team!</p>
+          <h3 class="popup-title">Think you have what it takes?</h3>
+          <p class="popup-description">Ready to prove yourself? We're looking for fast runners, clever strategists and
+            fearless players. No
+            experience required
+            - just bring your courage.</p>
+          <button class="button" popovertarget="popover-tryouts">
+            SIGN UP NOW
+          </button>
+        </div>
+
+        <div class="popup-content popover-panel popover-tryouts" id="popover-tryouts" popover>
+          <div class="popover-hero">
+            <img src="./imgs/bloodrush_ball.webp" alt="Bloodrush ball">
+
+            <div class="popover-hero-text">
+              <p class="popup-category popover-category">TRY-OUTS!</p>
+              <h4>Join the team!</h4>
+            </div>
+
+            <button class="popover-close" popovertarget="popover-tryouts" popovertargetaction="hide"
+              aria-label="Close popup">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="popover-body">
+            <h3>Think you have what it takes?</h3>
+
+            <p class="popover-intro">
+              Ready to prove yourself? We're looking for fast runners,
+              clever strategists and fearless players. No experience
+              required - just bring your courage.
+            </p>
+
+            <div class="popover-section">
+              <p class="popover-section-title">WHAT WE'RE LOOKING FOR</p>
+              <ul>
+                <li>Fast runners who can carry the ball and push through the scoring zone.</li>
+                <li>Clever strategists who can read the field and anticipate opponents.</li>
+                <li>Fearless players who trust their team and give everything on the field.</li>
+              </ul>
+            </div>
+
+            <p class="popover-note">
+              Try-outs are open to students of all years. You don't need
+              to be the strongest adventurer in the academy — you need
+              courage, commitment and the willingness to fight for your team.
+            </p>
+
+            <a href="./form.html" class="button">SIGN UP NOW</a>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="teamnews popup-card">
+          <img src="./imgs/aguefort_uniform.webp" alt="Aguefort uniform">
+          <p class="popup-category">TEAM NEWS</p>
+          <h3 class="popup-title">The Rush Report</h3>
+          <ul class="popup-list">
+            <li>New rookies are joining the roster.</li>
+            <li>Training drills are getting more intense.</li>
+            <li>The coaching staff is testing new offensive formations.</li>
+          </ul>
+          <button class="button" popovertarget="popover-teamnews">READ ALL NEWS</button>
+        </div>
+
+        <div class="popup-content popover-panel popover-teamnews" id="popover-teamnews" popover>
+
+          <div class="popover-hero">
+            <img src="./imgs/worn_cap.webp" alt="Worn cap">
+
+            <div class="popover-hero-text">
+              <p class="popup-category popover-category">TEAM NEWS</p>
+              <h4>Latest updates</h4>
+            </div>
+
+            <button class="popover-close" popovertarget="popover-teamnews" popovertargetaction="hide"
+              aria-label="Close popup">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="popover-body">
+            <h3>The Rush Report</h3>
+
+            <p class="popover-intro">
+              Stay up to date with everything happening on and off the field.
+              Here's what's new from the Owlbears coaching staff and roster.
+            </p>
+
+            <div class="popover-news-item">
+              <p class="popover-section-title">ROSTER</p>
+              <h4>New rookies are joining the roster.</h4>
+              <p>
+                Fresh adventurers have answered the call. The coaching staff
+                welcomes the newest class of Owlbear recruits to the training grounds.
+              </p>
+            </div>
+
+            <div class="popover-news-item">
+              <p class="popover-section-title">TRAINING</p>
+              <h4>Training drills are getting more intense.</h4>
+              <p>
+                The squad is pushing their limits this season. Endurance,
+                positioning and quick thinking are being tested every session.
+              </p>
+            </div>
+
+            <div class="popover-news-item">
+              <p class="popover-section-title">STRATEGY</p>
+              <h4>New offensive formations being tested.</h4>
+              <p>
+                The coaching staff is testing new offensive formations to
+                keep opponents guessing this season.
+              </p>
+            </div>
+
+            <a href="#" class="button">READ ALL NEWS</a>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="matchday popup-card">
+          <p class="popup-category">MATCH DAY</p>
+          <p class="popup-subtitle">Upcoming matches</p>
+          <h3 class="popup-title">Next Game. Next Victory.</h3>
+          <p class="popup-description">The next challenge is coming. Prepare your gear, trust your teammates and get
+            ready
+            to dominate the field.
+          </p>
+
+          <dl class="match-list">
+            <div>
+              <dt>Owlbears vs. Wyverns</dt>
+              <dd class="match-list-status1">Home game</dd>
+            </div>
+
+            <div>
+              <dt>Academy Rivalry Cup</dt>
+              <dd class="match-list-status2">Away game</dd>
+            </div>
+
+            <div>
+              <dt>Team Mimic vs. Team Imp</dt>
+              <dd class="match-list-status3">Friendly game</dd>
+            </div>
+          </dl>
+
+          <button class="button" popovertarget="popover-matchday">VIEW ALL MATCHES →</button>
+        </div>
+
+        <div class="popup-content popover-panel popover-matchday" id="popover-matchday" popover>
+
+          <div class="popover-hero">
+            <img src="./imgs/owlbears_trophy.webp" alt="Owlbears trophy">
+
+            <div class="popover-hero-text">
+              <p class="popup-category popover-category">MATCH DAY</p>
+              <h4>Next Game. Next Victory.</h4>
+            </div>
+
+            <button class="popover-close" popovertarget="popover-matchday" popovertargetaction="hide"
+              aria-label="Close popup">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="popover-body">
+            <p class="popover-intro">
+              The next challenge is coming. Prepare your gear, trust your
+              teammates and get ready to dominate the field.
+            </p>
+
+            <div class="matchday-schedule">
+
+              <div class="matchday-game">
+                <div class="matchday-game-info">
+                  <h4>Owlbears vs. Wyverns</h4>
+                  <p>Academy Bloodrush Field</p>
+                </div>
+                <span class="matchday-status status-upcoming">Home game</span>
+              </div>
+
+              <div class="matchday-game">
+                <div class="matchday-game-info">
+                  <h4>Academy Rivalry Cup</h4>
+                  <p>Championship Series</p>
+                </div>
+                <span class="matchday-status status-coming">Away game</span>
+              </div>
+
+              <div class="matchday-game">
+                <div class="matchday-game-info">
+                  <h4>Team Mimic vs. Team Imp</h4>
+                  <p>Training Ground</p>
+                </div>
+                <span class="matchday-status status-training">Friendly game</span>
+              </div>
+
+            </div>
+
+            <div class="matchday-footer">
+              <a href="#" class="button">VIEW FULL SCHEDULE →</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="meettheteam popup-card">
+          <img src="./imgs/owlbears_team.webp" alt="Owlbears team">
+          <p class="popup-category">MEET THE TEAM</p>
+          <h3 class="popup-title">Meet Your Future Legends</h3>
+          <p class="popup-description">Every great team needs more than strength. Meet the players who bring speed,
+            brains
+            and bravery to the
+            field.</p>
+          <button class="button" popovertarget="popover-meettheteam">MEET THE ROSTER</button>
+        </div>
+
+        <div class="popup-content popover-panel popover-meettheteam" id="popover-meettheteam" popover>
+
+          <div class="popover-hero meetteam-hero">
+            <img src="./imgs/locker_room.webp" alt="Owlbears locker room">
+
+            <div class="popover-hero-text">
+              <p class="popup-category popover-category">MEET THE TEAM</p>
+              <h4>Meet Your Future Legends</h4>
+            </div>
+
+            <button class="popover-close" popovertarget="popover-meettheteam" popovertargetaction="hide"
+              aria-label="Close popup">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="popover-body meetteam-body">
+
+            <p class="popover-intro">
+              Every great team needs more than strength. Meet the players
+              who bring speed, brains and bravery to the field.
+            </p>
+
+
+            <div class="meetteam-gallery">
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/fabian.webp" alt="Fabian Seacaster">
+                <p><strong>Fabian Seacaster</strong> - Captain</p>
+              </div>
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/riz.webp" alt="Riz Gukgak">
+                <p><strong>Riz Gukgak</strong> - Tactician</p>
+              </div>
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/max.webp" alt="Max Durden">
+                <p><strong>Max Durden</strong> - Striker</p>
+              </div>
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/mary.webp" alt="Mary Ann Skuttle">
+                <p><strong>Mary Ann Skuttle</strong> - Runner</p>
+              </div>
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/ragh.webp" alt="Ragh Barkrock">
+                <p><strong>Ragh Barkrock</strong> - Guardian</p>
+              </div>
+
+              <div class="meetteam-player">
+                <img src="./imgs/karakterer/kleechk.webp" alt="Kleechk">
+                <p><strong>Kleechk</strong> - Substitute</p>
+              </div>
+
+            </div>
+
+
+            <div class="meetteam-roles">
+              <p class="meetteam-section-label">PLAYER ROLES</p>
+
+              <div class="meetteam-role-grid">
+
+                <div>
+                  <h4>The Captain</h4>
+                  <p>Leads the team and calls the plays.</p>
+                </div>
+
+                <div>
+                  <h4>The Striker</h4>
+                  <p>Fast, fearless and always looking for a scoring opportunity.</p>
+                </div>
+
+                <div>
+                  <h4>The Guardian</h4>
+                  <p>Protects teammates and holds the line.</p>
+                </div>
+
+                <div>
+                  <h4>The Tactician</h4>
+                  <p>Reads the field and predicts the opponent's next move.</p>
+                </div>
+
+                <div>
+                  <h4>The Runner</h4>
+                  <p>Carries the ball and pushes toward the scoring zone.</p>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="meetteam-playbook">
+              <img src="./imgs/svg.webp" alt="Bloodrush playbook">
+
+              <div class="meetteam-playbook-content">
+                <p class="meetteam-section-label">BLOODRUSH TACTICS</p>
+                <h4>Explore the Bloodrush Playbook</h4>
+                <p>
+                  See the field, discover every player role and explore
+                  tactical formations. Every move matters. Every player
+                  has a purpose.
+                </p>
+                <a href="./svg.html" class="button">EXPLORE THE PLAYBOOK →</a>
+              </div>
+            </div>
+
+            <a href="./form.html" class="button meetteam-join">
+              MEET THE ROSTER
+            </a>
+
+          </div>
+        </div>
+    </section>
+
+    <section class="playbookteaser">
+      <img class="playbook-background" src="./imgs/svg.webp" alt="SVG">
+      <p class="section-label">INTERACTIVE SVG</p>
+      <h2>The Playbook</h2>
+      <p class="playbook-description">Explore the tactical side of Bloodrush. Discover the field, player roles, and what
+        every move means. Every
+        move matters.
+        Every player has a purpose.</p>
+      <a href="./svg.html" class="button">
+        EXPLORE THE PLAYBOOK →
+      </a>
+      <img class="playbook-image" src="./imgs/svg.webp" alt="SVG">
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <div class="footer-column">
+        <p class="footer-heading">OWLBEARS</p>
+        <p class="footer-subheading">AGUEFORT BLOODRUSH</p>
+        <p class="footer-description">Aguefort Adventure Academy's premier Bloodrush team. Play hard. Hit harder. Make
+          history.</p>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">NAVIGATE</p>
+        <nav class="footer-nav">
+          <a href="./" aria-current="page">Forside</a>
+          <a href="./svg.html">Interaktiv SVG</a>
+          <a href="./form.html">Formular</a>
+        </nav>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">THE TEAM</p>
+        <p>Academy Bloodrush Field</p>
+        <p>Aguefort Adventure Academy</p>
+        <p class="footer-highlight">GO OWLBEARS</p>
+      </div>
     </div>
   </footer>
+
   <script src="./script.js"></script>
 </body>
 
