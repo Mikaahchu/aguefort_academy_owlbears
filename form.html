@@ -4,7 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formular | Eventnavn</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <title>Eventnavn</title>
+
   <link rel="stylesheet" href="./starter.css">
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -14,11 +26,11 @@
     <div class="header-content">
       <a class="site-logo" href="./">Eventnavn</a>
       <nav class="site-nav">
-        <button>Menu</button>
-        <ul class="menu" id="menu" popover>
-          <li><a href="./">Forside</a></li>
+        <button class="menu-toggle" popovertarget="menu">Menu</button>
+        <ul class="nav-menu" id="menu" popover>
+          <li><a href="./index.html">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
-          <li><a href="./form.html" aria-current="page">Formular</a></li>
+          <li><a href="./" aria-current="page">Formular</a></li>
         </ul>
       </nav>
     </div>
@@ -26,183 +38,261 @@
 
   <main>
     <section class="form-page">
-      <header class="form-intro">
-        <h1>BLOODRUSH TRY-OUT APPLICATION</h1>
-        <p>AGUEFORT ACADEMY · NEW PLAYER REGISTRATION</p>
-        <p>Think you've got what it takes to join the field?
-          Fill out your application and show us what
-          you can bring to the team!
+      <div class="form-banner">
+        <div>
+          <p class="form-eyebrow">AGUEFORT ADVENTURE ACADEMY · BLOODRUSH</p>
+          <h1>EARN YOUR PLACE.</h1>
+          <p>
+            Fast runners. Clever strategists. Fearless players.
+            Tell us who you are and join the next generation of Owlbears.
+          </p>
+        </div>
+
+        <div class="form-banner-image">
+          <img src="./imgs/claws_owlbear.webp" alt="Owlbear claws">
+        </div>
+      </div>
+
+      <div class="form-intro">
+        <p class="form-section-label">JOIN THE TEAM</p>
+        <h2>Every legend starts somewhere.</h2>
+        <p>
+          No experience required - just bring your courage!
         </p>
-        <p>* Required fields</p>
-      </header>
+      </div>
 
-      <form class="form-placeholder" action="./opsamling.html">
+      <form class="application-form" action="./opsamling.html" method="get">
+
+        <div class="form-heading">
+          <h3>Player application</h3>
+          <p>Fill in your details and show us what you're made of.</p>
+        </div>
+
         <fieldset class="form-section">
-          <legend>PLAYER INFORMATION</legend>
+          <legend><span>01</span> PLAYER DETAILS</legend>
 
-          <div class="form-group">
-            <label for="fullname">Full name *</label>
-            <input type="text" id="fullname" name="fullname" autocomplete="name" minlength="2" required>
-            <p class="error-message">Please enter your full name.</p>
+          <div class="form-fields">
+            <div class="form-field full-width">
+              <label for="full-name">Full name</label>
+              <input type="text" id="full-name" name="full-name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" placeholder="Street, city and postcode" required>
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+            </div>
           </div>
+        </fieldset>
 
-          <div class="form-group">
-            <label for="address">Address *</label>
-            <input type="text" id="address" name="address" autocomplete="street-address" required>
-            <p class="error-message">Please enter your address.</p>
+        <fieldset class="form-section">
+          <legend><span>02</span> CLASS / YEAR</legend>
+
+          <div class="choice-grid four-columns">
+            <label class="choice-card">
+              <input type="radio" name="class-year" value="Freshman" required>
+              <span>Freshman</span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="class-year" value="Sophomore">
+              <span>Sophomore</span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="class-year" value="Junior">
+              <span>Junior</span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="class-year" value="Senior">
+              <span>Senior</span>
+            </label>
           </div>
+        </fieldset>
 
-          <div class="form-group">
-            <label for="phone">Phone number *</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-            <p class="error-message">Please enter your phone number.</p>
+        <fieldset class="form-section">
+          <legend><span>03</span> PREVIOUS EXPERIENCE</legend>
+          <p class="form-help">Choose the option that best describes you.</p>
+
+          <div class="choice-grid two-columns">
+
+            <label class="choice-card">
+              <input type="radio" name="experience" value="Beginner" required>
+              <span>
+                <strong>Beginner</strong>
+                <small>Never played before</small>
+              </span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="experience" value="Casual">
+              <span>
+                <strong>Casual</strong>
+                <small>Played for fun</small>
+              </span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="experience" value="Experienced">
+              <span>
+                <strong>Experienced</strong>
+                <small>Played on a team</small>
+              </span>
+            </label>
+
+            <label class="choice-card">
+              <input type="radio" name="experience" value="Veteran">
+              <span>
+                <strong>Veteran</strong>
+                <small>Competitive experience</small>
+              </span>
+            </label>
+
           </div>
+        </fieldset>
 
-          <fieldset class="form-group">
-            <legend>Class / year *</legend>
+        <fieldset class="form-section">
+          <legend><span>04</span> STRENGTH</legend>
+          <p class="form-help">Rate your physical strength.</p>
 
-            <fieldset class="form-group">
-              <legend>Class / year *</legend>
-              <label class="choice">
-                <input type="radio" name="year" value="freshman" required>
-                Freshman
-              </label>
+          <div class="range-wrapper">
+            <input type="range" id="strength" name="strength" min="1" max="5" step="1" value="3">
 
-              <label class="choice">
-                <input type="radio" name="year" value="sophomore">
-                Sophomore
-              </label>
+            <div class="range-labels">
+              <span>Imp</span>
+              <span>Beholder</span>
+              <span>Bugbear</span>
+              <span>Ogre</span>
+              <span>Tarrasque</span>
+            </div>
+          </div>
+        </fieldset>
 
-              <label class="choice">
-                <input type="radio" name="year" value="junior">
-                Junior
-              </label>
+        <fieldset class="form-section">
+          <legend><span>05</span> SPEED</legend>
+          <p class="form-help">Rate your speed on the field.</p>
 
-              <label class="choice">
-                <input type="radio" name="year" value="senior">
-                Senior
-              </label>
-            </fieldset>
+          <div class="range-wrapper">
+            <input type="range" id="speed" name="speed" min="1" max="5" step="1" value="3">
 
-          </fieldset>
+            <div class="range-labels">
+              <span>Zombie</span>
+              <span>Goblin</span>
+              <span>Hill Giant</span>
+              <span>Dire Wolf</span>
+              <span>Quickling</span>
+            </div>
+          </div>
+        </fieldset>
 
-          <fieldset class="form-section">
-            <legend>PLAYER ATTRIBUTES</legend>
+        <fieldset class="form-section">
+          <legend><span>06</span> PREFERRED POSITION</legend>
+          <p class="form-help">Select the position you would like to play.</p>
 
-            <fieldset class="form-group">
-              <legend>Previous experience *</legend>
+          <div class="choice-grid two-columns">
 
-            </fieldset>
-            <fieldset class="form-section">
-              <legend>PLAYER ATTRIBUTES</legend>
-              <fieldset class="form-group">
-                <legend>Previous experience *</legend>
-                <label class="choice">
-                  <input type="radio" name="experience" value="beginner" required>
-                  Beginner - never played before
-                </label>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Striker" required>
+              <span>
 
-                <label class="choice">
-                  <input type="radio" name="experience" value="casual">
-                  Casual - played for fun
-                </label>
+                <strong>Captain</strong>
+                <small>Leadership</small>
+              </span>
+            </label>
 
-                <label class="choice">
-                  <input type="radio" name="experience" value="experienced">
-                  Experienced - played on a team
-                </label>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Guardian">
+              <span>
+                <strong>Guardian</strong>
+                <small>Defense and strength</small>
+              </span>
+            </label>
 
-                <label class="choice">
-                  <input type="radio" name="experience" value="veteran">
-                  Veteran - competitive experience
-                </label>
-              </fieldset>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Captain">
+              <span>
+                <strong>Striker</strong>
+                <small>Attack and speed</small>
+              </span>
+            </label>
 
-              <div class="form-group">
-                <label for="strength">Strength</label>
-                <input type="range" id="strength" name="strength" min="1" max="10" value="5">
-                <div class="range-labels">
-                  <span>Weak</span>
-                  <span>Buff AF</span>
-                </div>
-              </div>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Tactician">
+              <span>
+                <strong>Tactician</strong>
+                <small>Strategy and coordination</small>
+              </span>
+            </label>
 
-              <div class="form-group">
-                <label for="speed">Speed</label>
-                <input type="range" id="speed" name="speed" min="1" max="10" value="5">
-                <div class="range-labels">
-                  <span>Turtle</span>
-                  <span>Hare</span>
-                </div>
-              </div>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Runner">
+              <span>
+                <strong>Runner</strong>
+                <small>Endurance and control</small>
+              </span>
+            </label>
 
-              <fieldset class="form-group">
-                <legend>Preferred position *</legend>
-                <p class="form-help">Choose a preferred position.</p>
+            <label class="choice-card">
+              <input type="radio" name="position" value="Flexible">
+              <span>
+                <strong>Flexible</strong>
+                <small>I'll play wherever needed</small>
+              </span>
+            </label>
 
-                <fieldset class="form-group">
-                  <legend>Preferred position *</legend>
-                  <p class="form-help">Choose a preferred position.</p>
-                  <label class="choice">
-                    <input type="radio" name="position" value="striker">
-                    Striker - attack and speed
-                  </label>
+          </div>
+        </fieldset>
 
-                  <label class="choice">
-                    <input type="radio" name="position" value="guardian">
-                    Guardian - defense and strength
-                  </label>
+        <fieldset class="form-section">
+          <legend><span>07</span> WHY SHOULD WE PICK YOU?</legend>
+          <p class="form-help">Tell us why you would make a great Owlbear.</p>
 
-                  <label class="choice">
-                    <input type="radio" name="position" value="captain">
-                    Captain - leadership
-                  </label>
+          <div class="form-field">
+            <textarea id="application-message" name="application-message" rows="4"
+              placeholder="Tell us what you would bring to the team..."></textarea>
+          </div>
+        </fieldset>
 
-                  <label class="choice">
-                    <input type="radio" name="position" value="tactician">
-                    Tactician - strategy and coordination
-                  </label>
+        <div class="form-submit">
+          <button type="submit" class="button">
+            SUBMIT APPLICATION →
+          </button>
+          <p>Our team will review your application.</p>
+        </div>
 
-                  <label class="choice">
-                    <input type="radio" name="position" value="runner">
-                    Runner - endurance and control
-                  </label>
-
-                  <p class="error-message" id="position-error">
-                    Please choose at least one position.
-                  </p>
-                </fieldset>
-
-              </fieldset>
-
-              <fieldset class="form-section">
-                <legend>YOUR APPLICATION</legend>
-
-              </fieldset>
-              <fieldset class="form-section">
-                <legend>YOUR APPLICATION</legend>
-                <div class="form-group">
-                  <label for="motivation">
-                    Why should we pick you? (optional)
-                  </label>
-                  <textarea id="motivation" name="motivation" rows="5"
-                    placeholder="Tell us what makes you a great player..."></textarea>
-                </div>
-
-              </fieldset>
-
-            </fieldset>
-            <button type="submit" class="submit-button">
-              SUBMIT APPLICATION →
-            </button>
       </form>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <div class="footer-column">
+        <p class="footer-heading">OWLBEARS</p>
+        <p class="footer-subheading">AGUEFORT BLOODRUSH</p>
+        <p class="footer-description">Aguefort Adventure Academy's premier Bloodrush team. Play hard. Hit harder. Make
+          history.</p>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">NAVIGATE</p>
+        <nav class="footer-nav">
+          <a href="./index.html">Forside</a>
+          <a href="./svg.html">Interaktiv SVG</a>
+          <a href="./" aria-current="page">Formular</a>
+        </nav>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">THE TEAM</p>
+        <p>Academy Bloodrush Field</p>
+        <p>Aguefort Adventure Academy</p>
+        <p class="footer-highlight">GO OWLBEARS</p>
+      </div>
     </div>
   </footer>
   <script src="./script.js"></script>

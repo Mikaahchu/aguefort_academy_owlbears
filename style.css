@@ -1,27 +1,36 @@
 /* Variabler */
 html {
   --color-page: #f7f7f7;
-  --color-surface: #fff;
-  --color-text: #222;
-  --color-muted: #666;
+  --color-surface: #3f2021;
+  --color-text: #3f2021;
+  --color-text2: #f5f1e6;
+  --color-text3: #af95a6;
   --color-border: #d8d8d8;
+  --color-border2: #6c8475;
+  --color-buttons: #d50032;
   --space-05: 0.5rem;
   --space-1: 1rem;
   --space-2: 2rem;
   --space-3: 3rem;
 
   background: var(--color-page);
-  color: var(--color-text);
 }
 
-/* Globalt layout */
+/**********GLOBALT LAYOUT**********/
+
 body {
   margin: 0;
   min-height: 100svh;
+
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: minmax(1rlh, 1fr) minmax(0, 75rem) minmax(1rlh, 1fr);
+
+  font-family: "Barlow Condensed", sans-serif;
+  color: var(--color-text);
+  font-weight: 400;
 }
+
+/* Fjern standard margin */
 
 h1,
 h2,
@@ -30,175 +39,22 @@ p {
   margin: 0;
 }
 
+/* Main */
+
 main {
   display: grid;
-  grid-template-columns: inherit;
-  grid-column: 1 / -1;
   align-content: start;
 }
 
-main > * {
-  grid-column: 2;
+/* Sektioner */
+
+main > section {
   padding-block: var(--space-3);
-}
-
-.svg-page {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.svg-intro {
-  display: grid;
-  gap: var(--space-1);
-  max-width: 60ch;
-}
-
-.svg-intro p {
-  color: var(--color-muted);
-}
-
-.svg-layout {
-  display: grid;
-  gap: var(--space-2);
-  align-items: start;
-  @media (width > 800px) {
-    grid-template-columns: 1fr min(40%, 36ch);
-  }
-}
-
-.form-page {
-  display: grid;
-  gap: var(--space-2);
-  @media (width > 600px) {
-    grid-template-columns: min(40%, 50ch) 1fr;
-  }
-}
-
-.form-intro {
-  display: grid;
-  gap: var(--space-1);
-  align-content: start;
-  max-width: 60ch;
-}
-
-.form-intro p {
-  color: var(--color-muted);
-}
-
-.opsamling-page {
-  display: grid;
-  gap: var(--space-2);
-  align-items: start;
-
-  @media (width > 800px) {
-    grid-template-columns: minmax(0, 44ch) minmax(20rem, 1fr);
-  }
-}
-
-.opsamling-intro {
-  display: grid;
-  gap: var(--space-1);
-  max-width: 60ch;
-}
-
-.opsamling-intro p {
-  color: var(--color-muted);
-}
-
-.error-page {
-  display: grid;
-  gap: var(--space-1);
-  max-width: 60ch;
-}
-
-.error-page p {
-  color: var(--color-muted);
-}
-
-/* Header og footer */
-.site-header,
-.site-footer {
-  grid-column: 1 / -1;
-
-  display: grid;
-  grid-template-columns: inherit;
-  background: var(--color-surface);
-}
-
-.header-content,
-.footer-content {
-  grid-column: 2;
-}
-
-.header-content {
-  min-height: 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.site-logo {
-  color: inherit;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.footer-content {
-  padding-block: var(--space-1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-1);
-  color: var(--color-muted);
-}
-
-/* Navigation */
-[popover] {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-}
-
-.site-nav button {
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  @media (width > 600px) {
-    display: none;
-  }
-}
-
-.menu {
-  margin: 0;
-  padding: var(--space-1);
-  list-style: none;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  @media (width > 600px) {
-    display: flex;
-    gap: var(--space-1);
-    padding: 0;
-    border: none;
-    background: none;
-    position: static;
-  }
-}
-
-.menu a {
-  display: block;
-  padding: 0.4rem 0;
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 2px solid #0000;
-}
-
-.menu a[aria-current="page"] {
-  border-bottom-color: var(--color-border);
+  box-sizing: border-box;
 }
 
 /* Flader */
+
 .panel,
 .svg-placeholder,
 .form-placeholder,
@@ -219,16 +75,6 @@ main > * {
   min-height: stretch;
 }
 
-.svg-placeholder {
-  min-width: 0;
-  min-height: 0;
-}
-.bloodrush-svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .form-placeholder {
   min-height: -webkit-fill-available;
   min-height: stretch;
@@ -236,6 +82,7 @@ main > * {
 }
 
 /* Details */
+
 .accordion {
   display: grid;
   gap: var(--space-05);
@@ -251,32 +98,1912 @@ main > * {
   color: var(--color-muted);
 }
 
-.accordion-item summary {
+/**********KNAPPER OG LINKS**********/
+
+.button {
+  display: inline-block;
+  width: fit-content;
+
+  justify-self: start;
+  align-self: start;
+
+  padding: 0.65rem 1.2rem;
+
+  border: none;
+  background: var(--color-buttons);
+  color: white;
+  border-radius: 3px;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
   cursor: pointer;
-  padding: var(--space-1);
-  font-weight: bold;
-  list-style: none;
-}
-.accordion-item summary::-webkit-details-marker {
-  display: none;
-}
-.accordion-item summary::after {
-  content: "+";
-  float: right;
-}
-.accordion-item[open] summary::after {
-  content: "−";
 }
 
-/* Knap/link */
-.button {
-  justify-self: start;
-  display: inline-block;
-  padding: 0.5rem 0.8rem;
-  border: 1px solid var(--color-border);
+/**********GENEREL TYPOGRAFI**********/
+
+h1,
+h2,
+h3 {
+  font-family: "Noto Serif", serif;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+p,
+li {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/**********FREMHÆVEDE TEKSTER OG KNAPPER**********/
+
+.button,
+.eyebrow,
+.hero-cta-text {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/**********SEKTIONSLABELS**********/
+
+.section-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/**********HEADER**********/
+
+.site-header {
   background: var(--color-surface);
+  color: var(--color-text2);
+}
+
+.header-content {
+  min-height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-1);
+  padding-inline: 5%;
+}
+
+/* Logo */
+.site-logo {
   color: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation */
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.nav-menu a {
+  display: block;
+  padding: 0.4rem 0;
+  color: var(--color-text2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: var(--color-buttons);
+}
+
+.nav-menu a[aria-current="page"] {
+  border-bottom-color: var(--color-buttons);
+}
+
+/* Popover */
+[popover] {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Menu-knap */
+.menu-toggle {
+  padding: 0.4rem 0.7rem;
+  color: var(--color-text2);
+  border: 1px solid var(--color-text3);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+@media (min-width: 601px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+    position: static;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    opacity: 1;
+  }
+}
+
+/*******************************************************************************************************/
+/********************************************* FORSIDE *************************************************/
+/*******************************************************************************************************/
+
+/**********MATCHSTRIP**********/
+
+.matchstrip {
+  padding: 0;
+  background: var(--color-surface);
+  color: var(--color-text2);
+  border-bottom: 2px solid #642c35;
+  position: relative;
+}
+
+/* Streg */
+
+.match-item + .match-item {
+  border-left: 2px solid var(--color-buttons);
+}
+
+/* Overskrift */
+
+.upcomingmatches {
+  padding: 0.45rem 1rem;
+  text-align: center;
+  background: var(--color-buttons);
+  border-bottom: 2px solid #642c35;
+  border-top: 2px solid #642c35;
+}
+
+.upcomingmatches .section-label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+/* Oversigt over kampe */
+
+.matches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem 0.8rem 2rem;
+}
+
+/* Den enkelte kamp */
+
+.match-item {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.75rem;
+  row-gap: 0.1rem;
+  font-size: 0.75rem;
+  padding-inline: 1rem;
+}
+
+/* Kampens modstander */
+
+.match-opponent {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Kampens dato */
+
+.match-date {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--color-text3);
+  font-size: 0.65rem;
+}
+
+/* Kampens status */
+
+.match-status1 {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 0.2rem 0.45rem;
+  background: #642c35;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+.match-status2 {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 0.2rem 0.45rem;
+  background: transparent;
+  color: var(--color-text3);
+  border: 1px solid var(--color-text3);
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+.match-status3 {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  padding: 0.2rem 0.45rem;
+  background: transparent;
+  color: var(--color-border2);
+  border: 1px solid var(--color-border2);
+  font-size: 0.75rem;
+  font-weight: bold;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+/* Link til alle kampe */
+
+.match-more {
+  justify-self: end;
+}
+
+.match-more .button {
+  padding: 0.5rem 0.8rem;
+  background: var(--color-buttons);
+  color: white;
+  font-weight: bold;
+}
+
+/**********HERO**********/
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-content: center;
+  justify-content: start;
+  justify-items: start;
+  gap: 1rem;
+
+  min-height: 25rem;
+  padding: 4rem 10%;
+
+  color: white;
+  background: var(--color-surface);
+}
+
+/* Baggrundsbillede */
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mørkt lag over baggrundsbilledet */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(63, 32, 33, 0.92) 0%,
+    rgba(63, 32, 33, 0.78) 50%,
+    rgba(63, 32, 33, 0.45) 100%
+  );
+}
+
+/* Ekstra billede */
+
+.hero-add-on {
+  position: absolute;
+  z-index: 1;
+
+  width: 27%;
+  height: 75%;
+  right: 11%;
+  top: 50%;
+
+  transform: translateY(-50%);
+  object-fit: contain;
+}
+
+/* Lille introduktionstekst */
+
+.hero-label {
+  grid-column: 1 / -1;
+  grid-row: 1;
+
+  margin-bottom: 0.3rem;
+
+  color: var(--color-text3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* Hovedoverskrift */
+
+.hero h1 {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  max-width: 15ch;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Beskrivelse */
+
+.hero-description {
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  max-width: 48ch;
+
+  color: var(--color-text2);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Primær knap */
+
+.hero .button {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+/* Sekundær knap */
+
+.button-outline {
+  display: inline-block;
+  grid-column: 2;
+  grid-row: 4;
+
+  padding: 0.65rem 1.2rem;
+
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 3px;
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+/* Hover-effekter */
+
+.hero .button:hover {
+  background: #a90028;
+  transition: background 0.2s;
+}
+
+.button-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.2s;
+}
+
+.hero .button-outline {
+  justify-self: start;
+}
+
+.hero-buttons {
+  grid-column: 1 / -1;
+  grid-row: 4;
+
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/**********WHAT IS BLOODRUSH?**********/
+
+.whatisbloodrush {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1rem 3rem;
+
+  padding-inline: 10%;
+
+  background: var(--color-text2);
+  box-sizing: border-box;
+}
+
+/* Lille sektionslabel */
+
+.whatisbloodrush .section-label {
+  grid-column: 1;
+  align-self: end;
+
+  color: var(--color-buttons);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+/* Overskrift */
+
+.whatisbloodrush h2 {
+  grid-column: 1;
+  align-self: start;
+}
+
+/* Beskrivelse */
+
+.bloodrush-description {
+  grid-column: 1;
+  max-width: 55ch;
+  font-size: 0.9rem;
+  margin-top: -1.5rem;
+}
+
+/* Liste med information */
+
+.bloodrush-features {
+  grid-column: 1;
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+}
+
+.bloodrush-features li::marker {
+  color: var(--color-buttons);
+}
+
+.bloodrush-rules-heading {
+  grid-column: 1;
+  margin-bottom: -1.7rem;
+  color: #92414e;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Billede */
+
+.bloodrush-image {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+
+  width: 100%;
+  max-height: 22rem;
+  object-fit: cover;
+
+  border-radius: 4px;
+}
+
+/**********NEWS AND UPDATES**********/
+
+.popupteaser {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  padding-inline: 10%;
+  background: var(--color-page);
+  box-sizing: border-box;
+}
+
+.popupteaser > div {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.popupteaser > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Sektionens overskrift */
+.popupteaser .section-label {
+  grid-column: 1 / -1;
+  align-self: end;
+  margin-bottom: -1.2rem;
+
+  color: var(--color-buttons);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.popupteaser h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.2rem;
+}
+
+/* Fælles kortdesign */
+.popup-card {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+
+  padding-bottom: 1rem;
+
+  background: white;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+}
+
+/* Kortets billede */
+.popup-card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Kortets tekst */
+.popup-card .popup-category,
+.popup-card .popup-date,
+.popup-card .popup-title,
+.popup-card .popup-description,
+.popup-card .popup-list,
+.popup-card .popup-subtitle {
+  margin-inline: 1rem;
+}
+
+/* Kategori */
+.popup-category {
+  justify-self: start;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.3rem;
+
+  background: var(--color-buttons);
+  color: white;
+  font-size: 0.55rem;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+/* Overskrift */
+.popup-title {
+  font-size: 1.2rem;
+}
+
+/* Beskrivelse */
+.popup-description {
+  font-size: 0.85rem;
+}
+
+/* Liste */
+.popup-list {
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+}
+
+.popup-list li::marker {
+  color: #92414e;
+}
+
+/* Knapper i popup-kort */
+.popup-card .button {
+  margin: 0.4rem 1rem 0;
+}
+
+/* Match list */
+.match-list {
+  margin-inline: 1rem;
+  font-size: 0.8rem;
+}
+
+.match-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.match-list-status1 {
+  background: #642c35;
+  color: white;
+}
+
+.match-list-status2 {
+  background: transparent;
+  color: var(--color-text3);
+  border: 1px solid var(--color-text3);
+}
+
+.match-list-status3 {
+  background: transparent;
+  color: var(--color-border2);
+  border: 1px solid var(--color-border2);
+}
+
+/* Matchday-kortets indhold */
+
+/* Matchday-kort */
+.matchday.popup-card {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  align-content: stretch;
+  gap: 0.65rem;
+
+  min-height: 23rem;
+  height: 100%;
+  padding: 1rem;
+
+  box-sizing: border-box;
+  background: var(--color-surface);
+  color: var(--color-text2);
+}
+
+/* Kategori */
+.matchday.popup-card .popup-category {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+
+  background: var(--color-buttons);
+  color: white;
+}
+
+/* Undertitel */
+.matchday.popup-card .popup-subtitle {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+
+  margin: 0;
+  color: var(--color-text3);
+  font-size: 0.7rem;
+}
+
+/* Overskrift */
+.matchday.popup-card .popup-title {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  margin: 0;
+  margin-top: 0.5rem;
+  color: var(--color-text2);
+}
+
+/* Beskrivelse */
+.matchday.popup-card .popup-description {
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  margin: 0;
+  color: var(--color-text3);
+}
+
+/* Kampoversigt */
+.matchday.popup-card .match-list {
+  grid-column: 1 / -1;
+  grid-row: 4;
+
+  margin: 0.5rem 0 0;
+  color: var(--color-text2);
+}
+
+/* Kamprækker */
+.matchday.popup-card .match-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #642c35;
+}
+
+/* Kampstatus */
+.matchday.popup-card .match-list dd {
+  margin: 0;
+  padding: 0.2rem 0.4rem;
+
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+
+/* Knap */
+.matchday.popup-card .button {
+  grid-column: 1 / -1;
+  grid-row: 6;
+  justify-self: start;
+  align-self: end;
+
+  margin: 0;
+}
+
+/**********POPOVERS**********/
+
+.popup-content[popover] {
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    display 0.3s allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+.popup-content[popover]:popover-open {
+  opacity: 1;
+}
+
+.popup-content[popover]::backdrop {
+  background: rgba(20, 10, 10, 0.55);
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    display 0.3s allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+.popup-content[popover]:popover-open::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .popup-content[popover]:popover-open {
+    opacity: 0;
+  }
+
+  .popup-content[popover]:popover-open::backdrop {
+    opacity: 0;
+  }
+}
+
+/***TRY-OUTS***/
+
+/* Fælles popover-vindue */
+.popover-panel[popover] {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(90vw, 700px);
+  max-height: 85svh;
+  overflow-y: auto;
+
+  padding: 0;
+  border: 1px solid var(--color-surface);
+  border-radius: 3px;
+  background: var(--color-text2);
+  color: var(--color-text);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero-billede */
+.popover-hero {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+
+.popover-hero > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mørkt lag over hero-billedet */
+.popover-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(63, 32, 33, 0.9), transparent 75%);
+}
+
+/* Tekst oven på billedet */
+.popover-hero-text {
+  position: absolute;
+  z-index: 1;
+  left: 1.5rem;
+  bottom: 0.8rem;
+  color: white;
+}
+
+.popover-hero-text .popover-category {
+  margin: 0 0 0.3rem;
+  display: inline-block;
+}
+
+.popover-hero-text h4 {
+  margin: 0;
+  font-family: "Noto Serif", serif;
+  font-size: 1.2rem;
+}
+
+/* Luk-knap */
+.popover-close {
+  position: absolute;
+  z-index: 2;
+  top: 0.7rem;
+  right: 0.7rem;
+
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  line-height: 1;
+}
+
+.popover-close span {
+  transform: translateY(-1px);
+}
+
+/* Indhold */
+.popover-body {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.5rem;
+}
+
+.popover-body h3 {
+  font-size: 1.25rem;
+}
+
+.popover-intro,
+.popover-note {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Sektion med punktliste */
+.popover-section {
+  padding-block: 0.8rem;
+  border-top: 1px solid var(--color-buttons);
+  border-bottom: 1px solid var(--color-buttons);
+}
+
+.popover-section-title {
+  margin-bottom: 0.5rem;
+  color: var(--color-buttons);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+.popover-section ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+}
+
+.popover-section li {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.popover-section li::marker {
+  color: var(--color-buttons);
+}
+
+/* Afsluttende tekst */
+.popover-note {
+  color: var(--color-text);
+}
+
+/* Knap */
+.popover-body .button {
+  margin-top: 0.2rem;
+}
+
+/*** TEAM NEWS ***/
+
+.popover-news-item {
+  padding-block: 0.8rem;
+  border-bottom: 1px solid var(--color-buttons);
+}
+
+.popover-news-item:first-of-type {
+  border-top: 1px solid var(--color-buttons);
+}
+
+.popover-news-item h4 {
+  margin-bottom: 0.35rem;
+  font-family: "Noto Serif", serif;
+  font-size: 0.95rem;
+}
+
+.popover-news-item > p:last-child {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/*** MATCHDAY POPOVER ***/
+
+/* Hele popoverens farver */
+.popover-matchday[popover] {
+  background: var(--color-surface);
+  color: var(--color-text2);
+  border-color: var(--color-surface);
+}
+
+/* Den lyse toplinje */
+.matchday-topline {
+  padding: 0.8rem 1.5rem;
+  background: #d8d0d0;
+  color: #af95a6;
+  font-size: 0.65rem;
+}
+
+/* Hero-billedet */
+.popover-matchday .popover-hero {
+  height: 172px;
+}
+
+/* Mørkt overlay over hele billedet */
+.popover-matchday .popover-hero::after {
+  background: rgba(63, 32, 33, 0.7);
+}
+
+/* Hero-tekst */
+.popover-matchday .popover-hero-text {
+  left: 2rem;
+  bottom: 1rem;
+}
+
+.popover-matchday .popover-hero-text h4 {
+  font-size: 2rem;
+}
+
+/* Indholdsområdet */
+.popover-matchday .popover-body {
+  padding: 2rem;
+  gap: 1.5rem;
+  background: var(--color-surface);
+}
+
+/* Intro */
+.popover-matchday .popover-intro {
+  color: var(--color-text3);
+  font-size: 0.85rem;
+}
+
+/* Kampoversigten */
+.matchday-schedule {
+  display: grid;
+  gap: 0.15rem;
+}
+
+/* Den enkelte kamp */
+.matchday-game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  height: 5.5rem;
+  min-height: 5.5rem;
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+
+  background: #4b2c2e;
+  border: 1px solid #642c35;
+}
+
+/* Kampinformation */
+.matchday-game-info {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.matchday-game-info h4 {
+  margin: 0;
+  font-family: "Noto Serif", serif;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--color-text2);
+}
+
+.matchday-game-info p {
+  color: var(--color-text3);
+  font-size: 0.75rem;
+}
+
+/* Status-labels */
+.matchday-status {
+  flex-shrink: 0;
+  padding: 0.4rem 0.7rem;
+
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* Upcoming */
+.status-upcoming {
+  background: #642c35;
+  color: white;
+  border: 1px solid #b05060;
+}
+
+/* Coming soon */
+.status-coming {
+  background: transparent;
+  color: var(--color-text3);
+  border: 1px solid var(--color-text3);
+}
+
+/* In training */
+.status-training {
+  background: transparent;
+  color: var(--color-border2);
+  border: 1px solid var(--color-border2);
+}
+
+/* Nederste streg og knap */
+.matchday-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-buttons);
+}
+
+.matchday-footer .button {
+  margin: 0;
+  padding: 0.8rem 1.5rem;
+}
+
+/*** MEET THE TEAM POPOVER ***/
+
+/* Toplinje */
+.meetteam-topline {
+  padding: 0.8rem 1.5rem;
+  background: #d8d0d0;
+  color: #af95a6;
+  font-size: 0.65rem;
+}
+
+/* Hero */
+.meetteam-hero {
+  height: 190px;
+}
+
+.popover-meettheteam .popover-hero::after {
+  background: linear-gradient(
+    0deg,
+    rgba(63, 32, 33, 0.85),
+    rgba(63, 32, 33, 0.2)
+  );
+}
+
+.popover-meettheteam .popover-hero-text {
+  left: 1.5rem;
+  bottom: 0.8rem;
+}
+
+.popover-meettheteam .popover-hero-text h4 {
+  font-size: 1.5rem;
+}
+
+/* Lys baggrund på indholdet */
+.popover-meettheteam .popover-body {
+  background: var(--color-text2);
+  color: var(--color-text);
+  padding: 1.5rem;
+  gap: 1.2rem;
+}
+
+/* Introduktion */
+.popover-meettheteam .popover-intro {
+  font-size: 0.8rem;
+}
+
+/* Spilleroversigt */
+.meetteam-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.meetteam-player {
+  min-width: 0;
+  background: white;
+  border: 1px solid var(--color-border);
+}
+
+.meetteam-player img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+}
+
+.meetteam-player p {
+  padding: 0.4rem;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  color: var(--color-text3);
+}
+
+.meetteam-player strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* Player roles */
+.meetteam-roles {
+  padding: 1rem;
+  background: white;
+  border: 1px solid var(--color-border);
+}
+
+.meetteam-section-label {
+  margin-bottom: 0.8rem;
+  color: var(--color-buttons);
+  font-size: 0.6rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.meetteam-role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 0.8rem;
+}
+
+.meetteam-role-grid h4 {
+  margin-bottom: 0.15rem;
+  font-family: "Noto Serif", serif;
+  font-size: 0.75rem;
+}
+
+.meetteam-role-grid p {
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+/* Playbook-banner */
+.meetteam-playbook {
+  position: relative;
+  min-height: 8rem;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  background: var(--color-surface);
+}
+
+.meetteam-playbook > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.meetteam-playbook::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(63, 32, 33, 0.78);
+}
+
+.meetteam-playbook-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: start;
+  gap: 0.35rem;
+  padding: 1rem;
+  color: var(--color-text2);
+}
+
+.meetteam-playbook-content .meetteam-section-label {
+  margin: 0;
+}
+
+.meetteam-playbook-content h4 {
+  font-family: "Noto Serif", serif;
+  font-size: 1rem;
+}
+
+.meetteam-playbook-content > p:not(.meetteam-section-label) {
+  max-width: 55ch;
+  color: var(--color-text3);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.meetteam-playbook-content .button {
+  margin-top: 0.2rem;
+  font-size: 0.65rem;
+}
+
+/* Afsluttende knap */
+.meetteam-join {
+  background: var(--color-surface);
+  color: var(--color-text2);
+  margin-top: 0.1rem;
+}
+
+/**********THE PLAYBOOK**********/
+
+.playbookteaser {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: start;
+  gap: 1rem;
+
+  min-height: 19rem;
+  padding: 3rem 10%;
+
+  color: var(--color-text2);
+  background: var(--color-surface);
+}
+
+/* Baggrundsbillede */
+.playbook-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mørkt lag over baggrundsbilledet */
+.playbookteaser::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: rgba(63, 32, 33, 0.78);
+}
+
+/* Billede ovenpå baggrunden */
+.playbook-image {
+  position: absolute;
+  z-index: 0;
+
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 38%;
+  height: 85%;
+  object-fit: contain;
+}
+
+/* Sektionens label */
+.playbookteaser .section-label {
+  position: relative;
+  z-index: 1;
+
+  color: var(--color-buttons);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+/* Overskrift */
+.playbookteaser h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+/* Beskrivelse */
+.playbook-description {
+  position: relative;
+  z-index: 1;
+
+  color: var(--color-text3);
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*******************************************************************************************************/
+/******************************************** FORMULAR *************************************************/
+/*******************************************************************************************************/
+
+/********** APPLICATION FORM **********/
+
+.form-page {
+  display: grid;
+  gap: 2rem;
+  padding: 0 0 3rem;
+  background: var(--color-page);
+}
+
+/* HERO */
+
+.form-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.6fr;
+  align-items: center;
+  gap: 2rem;
+
+  min-height: 14rem;
+  padding: 2rem 15% 2rem 15%;
+
+  background: var(--color-surface);
+  color: var(--color-text2);
+  border-top: 2px solid #642c35;
+  border-bottom: 2px solid var(--color-buttons);
+
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-banner-image {
+  height: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: rem;
+}
+
+.form-banner-image img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.form-banner > div {
+  max-width: 55ch;
+}
+
+.form-eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--color-text3);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.form-banner h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.form-banner > div > p:last-child {
+  max-width: 45ch;
+  color: var(--color-text3);
+  font-size: 0.85rem;
+}
+
+/* INTRO */
+
+.form-intro {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.form-intro,
+.application-form {
+  margin-inline: 10%;
+}
+
+.form-section-label {
+  color: var(--color-buttons);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.form-intro h2 {
+  font-size: 1.4rem;
+}
+
+.form-intro > p:last-child {
+  color: var(--color-text3);
+  font-size: 0.8rem;
+}
+
+/* FORM CONTAINER */
+
+.application-form {
+  display: grid;
+  gap: 1rem;
+
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-heading {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-heading h3 {
+  font-size: 1.25rem;
+}
+
+.form-heading p {
+  color: var(--color-text3);
+  font-size: 0.75rem;
+}
+
+/* FORM SECTIONS */
+
+.form-section {
+  display: grid;
+  gap: 0.65rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 1rem;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-section legend {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.15rem;
+
+  font-family: "Noto Serif", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.form-section legend span {
+  margin-right: 0.5rem;
+  color: var(--color-buttons);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.form-help {
+  margin-top: -0.3rem;
+  color: var(--color-text3);
+  font-size: 0.7rem;
+}
+
+/* TEXT INPUTS */
+
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr 0.55fr;
+  gap: 0.7rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 0.7rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: #faf9f7;
+  color: var(--color-text);
+
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.8rem;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #a99da0;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 1px solid var(--color-buttons);
+  border-color: var(--color-buttons);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 5rem;
+}
+
+/* RADIO CHOICE CARDS */
+
+.choice-grid {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.four-columns {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.choice-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  box-sizing: border-box;
+
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: #faf9f7;
+
+  cursor: pointer;
+}
+
+.choice-card:hover {
+  border-color: var(--color-buttons);
+}
+
+.choice-card input {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--color-buttons);
+}
+
+.choice-card span {
+  display: grid;
+  gap: 0.05rem;
+  min-width: 0;
+  font-size: 0.75rem;
+}
+
+.choice-card strong {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.choice-card small {
+  color: var(--color-text3);
+  font-size: 0.65rem;
+}
+
+.choice-card:has(input:checked) {
+  border-color: var(--color-buttons);
+  background: #fff7f7;
+}
+
+/* RANGE SLIDERS */
+
+.range-wrapper {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0.2rem 0.3rem 0;
+}
+
+.range-wrapper input[type="range"] {
+  width: 100%;
+  height: 5px;
+  margin: 0.5rem 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+  background: #d8c8cb;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Slider thumb - Chrome, Safari, Edge */
+
+.range-wrapper input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--color-buttons);
+  border-radius: 50%;
+  background: white;
+}
+
+/* Slider thumb - Firefox */
+
+.range-wrapper input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-buttons);
+  border-radius: 50%;
+  background: white;
+}
+
+/* Labels under slider */
+
+.range-labels {
+  position: relative;
+  height: 1.2rem;
+  margin-inline: 6.5px;
+}
+
+.range-labels span {
+  position: absolute;
+  transform: translateX(-50%);
+  color: var(--color-text3);
+  font-size: 0.65rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.range-labels span:nth-child(1) {
+  left: 0%;
+}
+.range-labels span:nth-child(2) {
+  left: 25%;
+}
+.range-labels span:nth-child(3) {
+  left: 50%;
+}
+.range-labels span:nth-child(4) {
+  left: 75%;
+}
+.range-labels span:nth-child(5) {
+  left: 100%;
+}
+
+/* SUBMIT */
+
+.form-submit {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+.form-submit .button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.75rem;
+}
+
+.form-submit .button:hover {
+  background: #a90028;
+}
+
+.form-submit p {
+  color: var(--color-text3);
+  font-size: 0.65rem;
+  font-style: italic;
+}
+
+/**********FOOTER**********/
+
+.site-footer {
+  background: var(--color-surface);
+  color: var(--color-text2);
+  border-top: 2px solid #642c35;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  padding-block: 2rem;
+  font-size: 0.7rem;
+}
+
+.footer-column {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+  max-width: 30ch;
+}
+
+.footer-column:nth-child(2) {
+  justify-self: center;
+}
+
+.footer-column:nth-child(3) {
+  justify-self: end;
+}
+
+/* Overskrifter */
+.footer-heading {
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+.footer-subheading {
+  margin-top: -7px;
+  color: var(--color-buttons);
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+/* Underoverskrifter og almindelig tekst */
+.footer-subheading,
+.footer-column > p:not(.footer-heading) {
+  font-size: 0.7rem;
+}
+
+/* Beskrivelsen i første kolonne */
+.footer-description {
+  margin-top: 0.4rem;
+  white-space: nowrap;
+  color: var(--color-text3);
+}
+
+/* Navigation */
+.footer-nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  color: var(--color-text3);
+  font-size: 0.7rem;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: var(--color-text2);
+}
+
+.footer-nav a[aria-current="page"] {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-text2);
+  border-bottom: 2px solid var(--color-buttons);
+  padding-bottom: 0.2rem;
+}
+
+/* De to midterste tekster i tredje kolonne */
+.footer-column:nth-child(3) p:nth-child(2),
+.footer-column:nth-child(3) p:nth-child(3) {
+  color: var(--color-text3);
+}
+
+/* Fremhævet tekst */
+.footer-highlight {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: var(--color-buttons);
+}
+
+/**********RØD STREG**********/
+
+.hero-label::before,
+.whatisbloodrush .section-label::before,
+.popupteaser .section-label::before,
+.playbookteaser .section-label::before,
+.footer-highlight::before,
+.form-section-label::before {
+  content: "";
+  display: inline-block;
+  width: 29px;
+  height: 2px;
+  background: var(--color-buttons);
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+
+/* FULD BREDDE PÅ FORSIDENS SEKTIONER */
+
+body {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+main {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+main > * {
+  grid-column: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-content,
+.footer-content {
+  grid-column: 1;
+  padding-inline: 5%;
+  box-sizing: border-box;
 }
 
 /*Forms*/
