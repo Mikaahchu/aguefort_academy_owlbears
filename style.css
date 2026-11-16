@@ -340,6 +340,20 @@ li {
 .match-opponent {
   grid-column: 1;
   grid-row: 1;
+.svg-placeholder {
+  min-width: 0;
+  min-height: 0;
+}
+.bloodrush-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.form-placeholder {
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+  padding: var(--space-1);
 }
 
 /* Kampens dato */
@@ -401,6 +415,27 @@ li {
 }
 
 .match-more .button {
+.accordion-item summary {
+  cursor: pointer;
+  padding: var(--space-1);
+  font-weight: bold;
+  list-style: none;
+}
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+.accordion-item summary::after {
+  content: "+";
+  float: right;
+}
+.accordion-item[open] summary::after {
+  content: "−";
+}
+
+/* Knap/link */
+.button {
+  justify-self: start;
+  display: inline-block;
   padding: 0.5rem 0.8rem;
   background: var(--color-buttons);
   color: white;
@@ -2004,4 +2039,672 @@ main > * {
   grid-column: 1;
   padding-inline: 5%;
   box-sizing: border-box;
+}
+
+/*Forms*/
+
+/*Forms layout*/
+.form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+}
+
+.form-placeholder {
+  display: grid;
+  gap: 2rem;
+}
+
+/*Forms intro*/
+.form-intro {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.form-intro h1 {
+  margin-bottom: 1rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+}
+
+.form-intro p {
+  margin-bottom: 0.75rem;
+  font-family: "Akshar", sans-serif;
+}
+
+/*Forms sections*/
+.form-section {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: #f5f1e6;
+  border: 1px solid #af95a6;
+  border-radius: 4px;
+  color: #3f2021;
+}
+
+.form-section > legend {
+  padding: 0 0.5rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/*Spørgsmål style*/
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form-group > label,
+.form-group > legend {
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+}
+
+.form-group > legend {
+  margin-bottom: 0.5rem;
+}
+
+/*Forms tekstfelter osv.*/
+.form-placeholder input[type="text"],
+.form-placeholder input[type="tel"],
+.form-placeholder select,
+.form-placeholder textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #fff;
+  border: 1px solid #af95a6;
+  border-radius: 3px;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+}
+
+.form-placeholder textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-placeholder input::placeholder,
+.form-placeholder textarea::placeholder {
+  color: #756b6d;
+}
+
+/*Hover*/
+.form-placeholder input[type="text"]:hover,
+.form-placeholder input[type="tel"]:hover,
+.form-placeholder select:hover,
+.form-placeholder textarea:hover {
+  border-color: #862633;
+}
+
+/*Radio og checkbox*/
+.form-placeholder .choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.form-placeholder input[type="radio"],
+.form-placeholder input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+
+/*Sliders*/
+.form-placeholder input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+/*tekst*/
+.form-help {
+  margin: 0;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+/*Formularfelter*/
+.form-placeholder :focus-visible {
+  outline: 3px solid #d50032;
+  outline-offset: 3px;
+}
+
+/*validering*/
+.form-placeholder input:user-invalid,
+.form-placeholder select:user-invalid {
+  border-color: #b00020;
+}
+
+.error-message {
+  display: none;
+  margin: 0;
+  color: #b00020;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+
+.form-group:has(input:user-invalid) > .error-message,
+.form-group:has(select:user-invalid) > .error-message {
+  display: block;
+}
+
+/*submit knap*/
+.submit-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #d50032;
+  border: 1px solid #d50032;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #862633;
+  border-color: #862633;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/*forms desktop*/
+@media (min-width: 800px) {
+  .form-page {
+    padding: 4rem 2rem;
+  }
+
+  .form-section {
+    padding: 2rem;
+  }
+
+  .submit-button {
+    width: fit-content;
+    justify-self: end;
+  }
+}
+
+/*svg animationer*/
+.bloodrush-svg .captain,
+.bloodrush-svg .striker,
+.bloodrush-svg .guardian,
+.bloodrush-svg .tactician,
+.bloodrush-svg .runner {
+  transition: transform 0.6s ease;
+}
+.bloodrush-svg[data-position="offensive"] .captain {
+  transform: translate(100px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .striker {
+  transform: translate(160px, -20px);
+}
+.bloodrush-svg[data-position="offensive"] .guardian {
+  transform: translate(60px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .tactician {
+  transform: translate(100px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .runner {
+  transform: translate(160px, 20px);
+}
+.bloodrush-svg[data-position="defensive"] .captain {
+  transform: translate(-20px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .striker {
+  transform: translate(0px, 20px);
+}
+.bloodrush-svg[data-position="defensive"] .guardian {
+  transform: translate(-40px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .tactician {
+  transform: translate(-20px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .runner {
+  transform: translate(0px, -20px);
+}
+.bloodrush-svg[data-position="mindgame"] .captain {
+  transform: translate(80px, 40px);
+}
+.bloodrush-svg[data-position="mindgame"] .striker {
+  transform: translate(140px, 60px);
+}
+.bloodrush-svg[data-position="mindgame"] .guardian {
+  transform: translate(40px, -30px);
+}
+.bloodrush-svg[data-position="mindgame"] .tactician {
+  transform: translate(120px, -40px);
+}
+.bloodrush-svg[data-position="mindgame"] .runner {
+  transform: translate(180px, -60px);
+}
+
+/*OPSAMLINGSIDE*/
+/*Layout*/
+.opsamling-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/*intro*/
+.opsamling-intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.opsamling-intro h1 {
+  margin-bottom: 1rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+}
+
+.opsamling-intro p {
+  margin-bottom: 1rem;
+}
+
+/*player-kit*/
+.player-kit {
+  padding: 1.5rem;
+  background-color: #f5f1e6;
+  border: 2px solid #862633;
+  border-radius: 8px;
+}
+
+/*overskrift*/
+.kit-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.kit-header p {
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.kit-header h2 {
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-size: 1.5rem;
+}
+
+/*trøje*/
+.jersey-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 2rem;
+}
+
+#player-jersey {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#jersey-name {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  width: 55%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Akshar", sans-serif;
+  font-size: clamp(0.8rem, 3vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/*profil*/
+.player-profile {
+  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #af95a6;
+  border-radius: 6px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-header p {
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-header h3 {
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+}
+
+.profile-status {
+  padding: 0.4rem 0.8rem;
+  background-color: #862633;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+/*oplysninger*/
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.profile-info {
+  padding: 1rem;
+  background-color: #f5f1e6;
+  border-radius: 4px;
+}
+
+.profile-info p {
+  margin-bottom: 0.3rem;
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-info span {
+  color: #3f2021;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/*pitch*/
+.profile-statement {
+  margin-top: 1.5rem;
+}
+
+.profile-statement p {
+  margin-bottom: 0.5rem;
+  color: #862633;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.profile-statement span {
+  color: #3f2021;
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+/*profil farver*/
+.player-kit[data-position="captain"] .profile-status {
+  background-color: #c69225;
+}
+
+.player-kit[data-position="striker"] .profile-status {
+  background-color: #d50032;
+}
+
+.player-kit[data-position="guardian"] .profile-status {
+  background-color: #3274b8;
+}
+
+.player-kit[data-position="tactician"] .profile-status {
+  background-color: #4a895b;
+}
+
+.player-kit[data-position="runner"] .profile-status {
+  background-color: #9160b8;
+}
+
+/*DESKTOP*/
+@media (min-width: 800px) {
+  .opsamling-page {
+    padding: 4rem 2rem;
+  }
+
+  .player-kit {
+    padding: 2.5rem;
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jersey-container {
+    max-width: 500px;
+  }
+}
+
+/****** FORMS *******/
+/*Forms layout*/
+.form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+}
+.form-placeholder {
+  display: grid;
+  gap: 2rem;
+}
+/*Forms intro*/
+.form-intro {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.form-intro h1 {
+  margin-bottom: 1rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+}
+.form-intro p {
+  margin-bottom: 0.75rem;
+  font-family: "Akshar", sans-serif;
+}
+/*Forms sections*/
+.form-section {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: #f5f1e6;
+  border: 1px solid #af95a6;
+  border-radius: 4px;
+  color: #3f2021;
+}
+.form-section > legend {
+  padding: 0 0.5rem;
+  color: #3f2021;
+  font-family: "Noto Serif", serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+/*Spørgsmål style*/
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.form-group > label,
+.form-group > legend {
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+}
+.form-group > legend {
+  margin-bottom: 0.5rem;
+}
+/*Forms tekstfelter osv.*/
+.form-placeholder input[type="text"],
+.form-placeholder input[type="tel"],
+.form-placeholder select,
+.form-placeholder textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #fff;
+  border: 1px solid #af95a6;
+  border-radius: 3px;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+}
+.form-placeholder textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-placeholder input::placeholder,
+.form-placeholder textarea::placeholder {
+  color: #756b6d;
+}
+/*Hover*/
+.form-placeholder input[type="text"]:hover,
+.form-placeholder input[type="tel"]:hover,
+.form-placeholder select:hover,
+.form-placeholder textarea:hover {
+  border-color: #862633;
+}
+/*Radio og checkbox*/
+.form-placeholder .choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #3f2021;
+  font-family: "Akshar", sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+.form-placeholder input[type="radio"],
+.form-placeholder input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+/*Sliders*/
+.form-placeholder input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #d50032;
+  cursor: pointer;
+}
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+/*tekst*/
+.form-help {
+  margin: 0;
+  color: #862633;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+/*Formularfelter*/
+.form-placeholder :focus-visible {
+  outline: 3px solid #d50032;
+  outline-offset: 3px;
+}
+/*validering*/
+.form-placeholder input:user-invalid,
+.form-placeholder select:user-invalid {
+  border-color: #b00020;
+}
+.error-message {
+  display: none;
+  margin: 0;
+  color: #b00020;
+  font-family: "Akshar", sans-serif;
+  font-size: 0.9rem;
+}
+.form-group:has(input:user-invalid) > .error-message,
+.form-group:has(select:user-invalid) > .error-message {
+  display: block;
+}
+/*submit knap*/
+.submit-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #d50032;
+  border: 1px solid #d50032;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Akshar", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.submit-button:hover {
+  background-color: #862633;
+  border-color: #862633;
+}
+.submit-button:active {
+  transform: scale(0.98);
+}
+/*forms desktop*/
+@media (min-width: 800px) {
+  .form-page {
+    padding: 4rem 2rem;
+  }
+  .form-section {
+    padding: 2rem;
+  }
+  .submit-button {
+    width: fit-content;
+    justify-self: end;
+  }
 }
