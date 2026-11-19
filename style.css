@@ -2255,6 +2255,15 @@ main > * {
   text-align: center;
 }
 
+.opsamling-intro .section-label {
+  margin-bottom: 0.5rem;
+
+  color: var(--color-buttons);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
 .opsamling-intro h1 {
   margin-bottom: 0.5rem;
   color: var(--color-text);
@@ -2336,6 +2345,7 @@ main > * {
 /* Trøje */
 .jersey-container {
   position: relative;
+
   width: 100%;
   max-width: none;
   margin: 0;
@@ -2349,23 +2359,32 @@ main > * {
 
 #player-jersey {
   display: block;
+
   width: 100%;
   max-width: 340px;
   height: auto;
   margin: 0 auto;
 }
 
+/*navn på jersey*/
 #jersey-name {
   position: absolute;
-  top: 23%;
-  left: 50%;
-  width: 55%;
+
+  top: 31%;
+  left: 53%;
+
+  width: 45%;
+
   transform: translateX(-50%);
-  color: #f4ca35;
+
+  margin: 0;
+
+  color: white;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(0.8rem, 3vw, 1.4rem);
+  font-size: clamp(0.7rem, 1.5vw, 1rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  line-height: 1.1;
+
   text-align: center;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -2405,7 +2424,16 @@ main > * {
 
 /* Skjul try-out mærket */
 .profile-status {
-  display: none;
+  padding: 0.4rem 0.8rem;
+
+  background: var(--color-buttons);
+  border-radius: 3px;
+
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  white-space: nowrap;
 }
 
 /* Oplysninger i to kolonner */
@@ -2459,7 +2487,7 @@ main > * {
   overflow-wrap: anywhere;
 }
 
-/* Personlig tekst */
+/*personal statement*/
 .profile-statement {
   margin-top: 0.8rem;
   padding-top: 0.8rem;
