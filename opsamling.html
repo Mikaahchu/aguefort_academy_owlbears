@@ -24,19 +24,19 @@
 <body>
   <header class="site-header">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">OWLBEARS</a>
       <nav class="site-nav">
-        <button>Menu</button>
-        <ul class="menu" id="menu" popover>
-          <li><a href="./">Forside</a></li>
+        <button class="menu-toggle" popovertarget="menu">Menu</button>
+        <ul class="nav-menu" id="menu" popover>
+          <li><a href="./index.html">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
-          <li><a href="./form.html" aria-current="page">Formular</a></li>
+          <li><a href="./" aria-current="page">Formular</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="opsamling-main">
     <section class="opsamling-page">
       <div class="opsamling-intro">
         <h1>WELCOME TO THE FIELD</h1>
@@ -51,10 +51,10 @@
 
       <article class="opsamling-placeholder">
         <div class="player-kit">
-          <header class="kit-header">
-            <p>AGUEFORT Academy</p>
+          <div class="kit-header">
+            <p>Aguefort Adventure Academy</p>
             <h2>OFFICIAL OWLBEARS PLAYER KIT</h2>
-          </header>
+          </div>
 
           <div class="jersey-container">
             <img id="player-jersey" src="" alt="bloodrush player jersey">
@@ -93,12 +93,12 @@
               </div>
 
               <div class="profile-info">
-                <p>STRENGTH</p>
+                <p>STRONG AS A...</p>
                 <span id="player-strength">5/10</span>
               </div>
 
               <div class="profile-info">
-                <p>SPEED</p>
+                <p>FAST AS A...</p>
                 <span id="player-speed">5/10</span>
               </div>
             </div>
@@ -117,8 +117,28 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <div class="footer-column">
+        <p class="footer-heading">OWLBEARS</p>
+        <p class="footer-subheading">AGUEFORT BLOODRUSH</p>
+        <p class="footer-description">Aguefort Adventure Academy's premier Bloodrush team. Play hard. Hit harder. Make
+          history.</p>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">NAVIGATE</p>
+        <nav class="footer-nav">
+          <a href="./index.html">Forside</a>
+          <a href="./svg.html">Interaktiv SVG</a>
+          <a href="./" aria-current="page">Formular</a>
+        </nav>
+      </div>
+
+      <div class="footer-column">
+        <p class="footer-heading">THE TEAM</p>
+        <p>Academy Bloodrush Field</p>
+        <p>Aguefort Adventure Academy</p>
+        <p class="footer-highlight">GO OWLBEARS</p>
+      </div>
     </div>
   </footer>
   <script src="./script.js"></script>

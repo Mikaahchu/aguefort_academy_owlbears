@@ -885,6 +885,32 @@ li {
   margin: 0;
 }
 
+/*** Popup animation ***/
+
+.popup-card {
+  animation: popup-reveal 0.5s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 40% entry 65%;
+}
+
+@keyframes popup-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-card {
+    animation: none;
+  }
+}
+
 /**********POPOVERS**********/
 
 .popup-content[popover] {
@@ -1484,6 +1510,203 @@ li {
   line-height: 1.5;
 }
 
+/************************************************************************************************************/
+/*************************************************** SVG ***************************************************/
+/************************************************************************************************************/
+
+/********** SVG-SIDE – THE PLAYBOOK **********/
+
+/* Hele siden */
+.svg-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 7.5% 3rem;
+  box-sizing: border-box;
+  display: grid;
+  gap: 2rem;
+}
+
+/* Intro */
+.svg-intro {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+
+.svg-intro h1 {
+  color: var(--color-text);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.svg-intro h2 {
+  color: var(--color-buttons);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.svg-intro p {
+  max-width: 60ch;
+  color: var(--color-text3);
+  font-size: 0.9rem;
+}
+
+/* Layout med bane og taktikpanel */
+.svg-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(230px, 0.8fr);
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+/* Baneområdet */
+.svg-placeholder {
+  min-width: 0;
+  min-height: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  background: var(--color-text2);
+  border: 1px solid #dad5ca;
+  border-radius: 5px;
+}
+
+/* Selve SVG'en */
+.bloodrush-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Taktikpanel */
+.panel {
+  align-content: start;
+  gap: 1rem;
+  padding: 1.25rem;
+
+  background: white;
+  border: 1px solid #dad5ca;
+  border-radius: 5px;
+}
+
+.panel h2 {
+  padding-bottom: 0.8rem;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--color-buttons);
+}
+
+/* Accordion */
+.accordion {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.accordion-item {
+  background: #faf8f3;
+  border: 1px solid #dad5ca;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.accordion-item summary {
+  position: relative;
+  padding: 0.8rem 2rem 0.8rem 0.9rem;
+  color: var(--color-text);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.9rem;
+  color: var(--color-buttons);
+  font-size: 1.2rem;
+}
+
+.accordion-item[open] summary::after {
+  content: "−";
+}
+
+.accordion-item[open] {
+  border-color: var(--color-buttons);
+  background: white;
+}
+
+.accordion-item p {
+  padding: 0 0.9rem 0.9rem;
+  color: var(--color-text3);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/*svg animationer*/
+.bloodrush-svg .captain,
+.bloodrush-svg .striker,
+.bloodrush-svg .guardian,
+.bloodrush-svg .tactician,
+.bloodrush-svg .runner {
+  transition: transform 0.6s ease;
+}
+.bloodrush-svg[data-position="offensive"] .captain {
+  transform: translate(100px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .striker {
+  transform: translate(160px, -20px);
+}
+.bloodrush-svg[data-position="offensive"] .guardian {
+  transform: translate(60px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .tactician {
+  transform: translate(100px, 0px);
+}
+.bloodrush-svg[data-position="offensive"] .runner {
+  transform: translate(160px, 20px);
+}
+.bloodrush-svg[data-position="defensive"] .captain {
+  transform: translate(-20px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .striker {
+  transform: translate(0px, 20px);
+}
+.bloodrush-svg[data-position="defensive"] .guardian {
+  transform: translate(-40px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .tactician {
+  transform: translate(-20px, 0px);
+}
+.bloodrush-svg[data-position="defensive"] .runner {
+  transform: translate(0px, -20px);
+}
+.bloodrush-svg[data-position="mindgame"] .captain {
+  transform: translate(80px, 40px);
+}
+.bloodrush-svg[data-position="mindgame"] .striker {
+  transform: translate(140px, 60px);
+}
+.bloodrush-svg[data-position="mindgame"] .guardian {
+  transform: translate(40px, -30px);
+}
+.bloodrush-svg[data-position="mindgame"] .tactician {
+  transform: translate(120px, -40px);
+}
+.bloodrush-svg[data-position="mindgame"] .runner {
+  transform: translate(180px, -60px);
+}
+
 /*******************************************************************************************************/
 /******************************************** FORMULAR *************************************************/
 /*******************************************************************************************************/
@@ -1522,7 +1745,6 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: rem;
 }
 
 .form-banner-image img {
@@ -1534,7 +1756,7 @@ li {
   object-fit: contain;
 }
 
-.form-banner > div {
+.form-banner-text {
   max-width: 55ch;
 }
 
@@ -2006,345 +2228,131 @@ main > * {
   box-sizing: border-box;
 }
 
-/*Forms*/
+/************************************************************************************************************/
+/********************************************** OPSAMLING ************************************************/
+/************************************************************************************************************/
 
-/*Forms layout*/
-.form-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-}
+/********** OPSAMLINGSSIDE **********/
 
-.form-placeholder {
-  display: grid;
-  gap: 2rem;
+/* Hele sidens layout */
+.opsamling-main {
+  border-top: 2px solid var(--color-buttons);
 }
 
-/*Forms intro*/
-.form-intro {
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-.form-intro h1 {
-  margin-bottom: 1rem;
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
-  font-weight: 700;
-}
-
-.form-intro p {
-  margin-bottom: 0.75rem;
-  font-family: "Akshar", sans-serif;
-}
-
-/*Forms sections*/
-.form-section {
-  display: grid;
-  gap: 1.5rem;
-  min-width: 0;
-  margin: 0;
-  padding: 1.5rem;
-  background-color: #f5f1e6;
-  border: 1px solid #af95a6;
-  border-radius: 4px;
-  color: #3f2021;
-}
-
-.form-section > legend {
-  padding: 0 0.5rem;
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-
-/*Spørgsmål style*/
-.form-group {
-  display: grid;
-  gap: 0.5rem;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.form-group > label,
-.form-group > legend {
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-weight: 700;
-}
-
-.form-group > legend {
-  margin-bottom: 0.5rem;
-}
-
-/*Forms tekstfelter osv.*/
-.form-placeholder input[type="text"],
-.form-placeholder input[type="tel"],
-.form-placeholder select,
-.form-placeholder textarea {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #fff;
-  border: 1px solid #af95a6;
-  border-radius: 3px;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-size: 1rem;
-}
-
-.form-placeholder textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-placeholder input::placeholder,
-.form-placeholder textarea::placeholder {
-  color: #756b6d;
-}
-
-/*Hover*/
-.form-placeholder input[type="text"]:hover,
-.form-placeholder input[type="tel"]:hover,
-.form-placeholder select:hover,
-.form-placeholder textarea:hover {
-  border-color: #862633;
-}
-
-/*Radio og checkbox*/
-.form-placeholder .choice {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-weight: 400;
-  cursor: pointer;
-}
-
-.form-placeholder input[type="radio"],
-.form-placeholder input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex-shrink: 0;
-  margin: 0;
-  accent-color: #d50032;
-  cursor: pointer;
-}
-
-/*Sliders*/
-.form-placeholder input[type="range"] {
-  width: 100%;
-  margin: 0.5rem 0;
-  accent-color: #d50032;
-  cursor: pointer;
-}
-
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: #862633;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-
-/*tekst*/
-.form-help {
-  margin: 0;
-  color: #862633;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-
-/*Formularfelter*/
-.form-placeholder :focus-visible {
-  outline: 3px solid #d50032;
-  outline-offset: 3px;
-}
-
-/*validering*/
-.form-placeholder input:user-invalid,
-.form-placeholder select:user-invalid {
-  border-color: #b00020;
-}
-
-.error-message {
-  display: none;
-  margin: 0;
-  color: #b00020;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-
-.form-group:has(input:user-invalid) > .error-message,
-.form-group:has(select:user-invalid) > .error-message {
-  display: block;
-}
-
-/*submit knap*/
-.submit-button {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background-color: #d50032;
-  border: 1px solid #d50032;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Akshar", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.submit-button:hover {
-  background-color: #862633;
-  border-color: #862633;
-}
-
-.submit-button:active {
-  transform: scale(0.98);
-}
-
-/*forms desktop*/
-@media (min-width: 800px) {
-  .form-page {
-    padding: 4rem 2rem;
-  }
-
-  .form-section {
-    padding: 2rem;
-  }
-
-  .submit-button {
-    width: fit-content;
-    justify-self: end;
-  }
-}
-
-/*svg animationer*/
-.bloodrush-svg .captain,
-.bloodrush-svg .striker,
-.bloodrush-svg .guardian,
-.bloodrush-svg .tactician,
-.bloodrush-svg .runner {
-  transition: transform 0.6s ease;
-}
-.bloodrush-svg[data-position="offensive"] .captain {
-  transform: translate(100px, 0px);
-}
-.bloodrush-svg[data-position="offensive"] .striker {
-  transform: translate(160px, -20px);
-}
-.bloodrush-svg[data-position="offensive"] .guardian {
-  transform: translate(60px, 0px);
-}
-.bloodrush-svg[data-position="offensive"] .tactician {
-  transform: translate(100px, 0px);
-}
-.bloodrush-svg[data-position="offensive"] .runner {
-  transform: translate(160px, 20px);
-}
-.bloodrush-svg[data-position="defensive"] .captain {
-  transform: translate(-20px, 0px);
-}
-.bloodrush-svg[data-position="defensive"] .striker {
-  transform: translate(0px, 20px);
-}
-.bloodrush-svg[data-position="defensive"] .guardian {
-  transform: translate(-40px, 0px);
-}
-.bloodrush-svg[data-position="defensive"] .tactician {
-  transform: translate(-20px, 0px);
-}
-.bloodrush-svg[data-position="defensive"] .runner {
-  transform: translate(0px, -20px);
-}
-.bloodrush-svg[data-position="mindgame"] .captain {
-  transform: translate(80px, 40px);
-}
-.bloodrush-svg[data-position="mindgame"] .striker {
-  transform: translate(140px, 60px);
-}
-.bloodrush-svg[data-position="mindgame"] .guardian {
-  transform: translate(40px, -30px);
-}
-.bloodrush-svg[data-position="mindgame"] .tactician {
-  transform: translate(120px, -40px);
-}
-.bloodrush-svg[data-position="mindgame"] .runner {
-  transform: translate(180px, -60px);
-}
-
-/*OPSAMLINGSIDE*/
-/*Layout*/
 .opsamling-page {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 1.5rem 7.5% 1.75rem;
+  box-sizing: border-box;
+  display: grid;
+  gap: 1.25rem;
 }
 
-/*intro*/
+/* Intro */
 .opsamling-intro {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   text-align: center;
 }
 
 .opsamling-intro h1 {
-  margin-bottom: 1rem;
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
 }
 
 .opsamling-intro p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-text3);
+  font-size: 0.8rem;
 }
 
-/*player-kit*/
+.opsamling-intro .actions {
+  display: flex;
+  justify-content: center;
+}
+
+.opsamling-intro .button {
+  padding: 0.55rem 1rem;
+  font-size: 0.65rem;
+}
+
+/* Beige ramme omkring spillerkortet */
+.opsamling-placeholder {
+  min-height: 0;
+  padding: 0.9rem;
+  background: var(--color-text2);
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #dad5ca;
+}
+
+/* Indholdet i spillerkortet */
 .player-kit {
-  padding: 1.5rem;
-  background-color: #f5f1e6;
-  border: 2px solid #862633;
-  border-radius: 8px;
+  display: grid;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
-/*overskrift*/
+/* Overskrift over trøjen */
 .kit-header {
-  margin-bottom: 2rem;
+  margin: 0;
+  padding: 1rem 1rem 0;
+  background: white;
   text-align: center;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #dad5ca;
+  border-bottom: 0;
 }
 
 .kit-header p {
-  color: #862633;
-  font-family: "Akshar", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+  color: var(--color-text3);
+  font-size: 0.65rem;
 }
 
 .kit-header h2 {
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
-  font-size: 1.5rem;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 0.7rem;
 }
 
-/*trøje*/
+.kit-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 2px;
+  background-color: var(--color-buttons);
+  border-radius: 2px;
+}
+
+/* Trøje */
 .jersey-container {
   position: relative;
   width: 100%;
-  max-width: 450px;
-  margin: 0 auto 2rem;
+  max-width: none;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #dad5ca;
+  border-top: 0;
 }
 
 #player-jersey {
   display: block;
   width: 100%;
+  max-width: 340px;
   height: auto;
+  margin: 0 auto;
 }
 
 #jersey-name {
@@ -2353,95 +2361,126 @@ main > * {
   left: 50%;
   width: 55%;
   transform: translateX(-50%);
-  color: #fff;
-  font-family: "Akshar", sans-serif;
-  font-size: clamp(0.8rem, 3vw, 1.5rem);
+  color: #f4ca35;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(0.8rem, 3vw, 1.4rem);
   font-weight: 700;
+  letter-spacing: 0.12em;
   text-align: center;
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 
-/*profil*/
+/* Spillerprofil */
 .player-profile {
-  padding: 1.5rem;
-  background-color: #fff;
-  border: 1px solid #af95a6;
+  padding: 1rem;
+  background: white;
+  border: none;
   border-radius: 6px;
+  margin-top: 1.5rem;
+  border: 1px solid #dad5ca;
 }
 
+/* Profiloverskrift */
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .profile-header p {
-  color: #862633;
-  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  color: var(--color-buttons);
+  font-size: 0.6rem;
   font-weight: 700;
 }
 
 .profile-header h3 {
-  color: #3f2021;
+  color: var(--color-text);
   font-family: "Noto Serif", serif;
+  font-size: 1rem;
 }
 
+/* Skjul try-out mærket */
 .profile-status {
-  padding: 0.4rem 0.8rem;
-  background-color: #862633;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 0.8rem;
+  display: none;
 }
 
-/*oplysninger*/
+/* Oplysninger i to kolonner */
 .profile-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
 }
 
+/* De enkelte informationsfelter */
 .profile-info {
-  padding: 1rem;
-  background-color: #f5f1e6;
+  min-width: 0;
+  padding: 0.55rem;
+  background: var(--color-text2);
   border-radius: 4px;
+  border: 1px solid #dad5ca;
+}
+
+/* Rækkefølge på felterne */
+.profile-info:nth-child(1) {
+  order: 2;
+}
+.profile-info:nth-child(2) {
+  order: 4;
+}
+.profile-info:nth-child(3) {
+  order: 3;
+}
+.profile-info:nth-child(4) {
+  order: 1;
+}
+.profile-info:nth-child(5) {
+  order: 5;
+}
+.profile-info:nth-child(6) {
+  order: 6;
 }
 
 .profile-info p {
-  margin-bottom: 0.3rem;
-  color: #862633;
-  font-size: 0.8rem;
+  margin-bottom: 0.15rem;
+  color: var(--color-buttons);
+  font-size: 0.55rem;
   font-weight: 700;
 }
 
 .profile-info span {
-  color: #3f2021;
-  font-size: 1.1rem;
+  display: block;
+  color: var(--color-text);
+  font-size: 0.8rem;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-/*pitch*/
+/* Personlig tekst */
 .profile-statement {
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #f0b5c2;
 }
 
 .profile-statement p {
-  margin-bottom: 0.5rem;
-  color: #862633;
-  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-buttons);
+  font-size: 0.6rem;
   font-weight: 700;
 }
 
 .profile-statement span {
-  color: #3f2021;
-  font-style: italic;
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-style: normal;
   overflow-wrap: anywhere;
 }
 
-/*profil farver*/
+/* Farver på status efter position */
 .player-kit[data-position="captain"] .profile-status {
   background-color: #c69225;
 }
@@ -2462,214 +2501,22 @@ main > * {
   background-color: #9160b8;
 }
 
-/*DESKTOP*/
+/* Desktop */
 @media (min-width: 800px) {
   .opsamling-page {
-    padding: 4rem 2rem;
+    padding: 2.5rem 2rem;
+    gap: 1.5rem;
   }
 
-  .player-kit {
-    padding: 2.5rem;
+  .opsamling-placeholder {
+    padding: 1.5rem;
   }
 
-  .profile-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .player-profile {
+    padding: 1.5rem;
   }
 
-  .jersey-container {
-    max-width: 500px;
-  }
-}
-
-/****** FORMS *******/
-/*Forms layout*/
-.form-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-}
-.form-placeholder {
-  display: grid;
-  gap: 2rem;
-}
-/*Forms intro*/
-.form-intro {
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-.form-intro h1 {
-  margin-bottom: 1rem;
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
-  font-weight: 700;
-}
-.form-intro p {
-  margin-bottom: 0.75rem;
-  font-family: "Akshar", sans-serif;
-}
-/*Forms sections*/
-.form-section {
-  display: grid;
-  gap: 1.5rem;
-  min-width: 0;
-  margin: 0;
-  padding: 1.5rem;
-  background-color: #f5f1e6;
-  border: 1px solid #af95a6;
-  border-radius: 4px;
-  color: #3f2021;
-}
-.form-section > legend {
-  padding: 0 0.5rem;
-  color: #3f2021;
-  font-family: "Noto Serif", serif;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-/*Spørgsmål style*/
-.form-group {
-  display: grid;
-  gap: 0.5rem;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.form-group > label,
-.form-group > legend {
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-weight: 700;
-}
-.form-group > legend {
-  margin-bottom: 0.5rem;
-}
-/*Forms tekstfelter osv.*/
-.form-placeholder input[type="text"],
-.form-placeholder input[type="tel"],
-.form-placeholder select,
-.form-placeholder textarea {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #fff;
-  border: 1px solid #af95a6;
-  border-radius: 3px;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-size: 1rem;
-}
-.form-placeholder textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-.form-placeholder input::placeholder,
-.form-placeholder textarea::placeholder {
-  color: #756b6d;
-}
-/*Hover*/
-.form-placeholder input[type="text"]:hover,
-.form-placeholder input[type="tel"]:hover,
-.form-placeholder select:hover,
-.form-placeholder textarea:hover {
-  border-color: #862633;
-}
-/*Radio og checkbox*/
-.form-placeholder .choice {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #3f2021;
-  font-family: "Akshar", sans-serif;
-  font-weight: 400;
-  cursor: pointer;
-}
-.form-placeholder input[type="radio"],
-.form-placeholder input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex-shrink: 0;
-  margin: 0;
-  accent-color: #d50032;
-  cursor: pointer;
-}
-/*Sliders*/
-.form-placeholder input[type="range"] {
-  width: 100%;
-  margin: 0.5rem 0;
-  accent-color: #d50032;
-  cursor: pointer;
-}
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: #862633;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-/*tekst*/
-.form-help {
-  margin: 0;
-  color: #862633;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-/*Formularfelter*/
-.form-placeholder :focus-visible {
-  outline: 3px solid #d50032;
-  outline-offset: 3px;
-}
-/*validering*/
-.form-placeholder input:user-invalid,
-.form-placeholder select:user-invalid {
-  border-color: #b00020;
-}
-.error-message {
-  display: none;
-  margin: 0;
-  color: #b00020;
-  font-family: "Akshar", sans-serif;
-  font-size: 0.9rem;
-}
-.form-group:has(input:user-invalid) > .error-message,
-.form-group:has(select:user-invalid) > .error-message {
-  display: block;
-}
-/*submit knap*/
-.submit-button {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background-color: #d50032;
-  border: 1px solid #d50032;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Akshar", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-.submit-button:hover {
-  background-color: #862633;
-  border-color: #862633;
-}
-.submit-button:active {
-  transform: scale(0.98);
-}
-/*forms desktop*/
-@media (min-width: 800px) {
-  .form-page {
-    padding: 4rem 2rem;
-  }
-  .form-section {
-    padding: 2rem;
-  }
-  .submit-button {
-    width: fit-content;
-    justify-self: end;
+  #player-jersey {
+    max-width: 380px;
   }
 }
