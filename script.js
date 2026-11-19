@@ -31,6 +31,15 @@ if (opsamlingPlaceholder) {
   const strength = params.get("strength") || "3";
   const speed = params.get("speed") || "3";
 
+  const strengthLabels = ["Imp", "Beholder", "Bugbear", "Ogre", "Tarrasque"];
+  const speedLabels = [
+    "Zombie",
+    "Goblin",
+    "Hill Giant",
+    "Dire Wolf",
+    "Quickling",
+  ];
+
   const motivation =
     params.get("application-message") || "Ready to prove myself on the field!";
 
@@ -43,8 +52,9 @@ if (opsamlingPlaceholder) {
   document.querySelector("#player-experience").textContent = experience;
   document.querySelector("#player-position").textContent = position;
 
-  document.querySelector("#player-strength").textContent = strength + "/5";
-  document.querySelector("#player-speed").textContent = speed + "/5";
+  document.querySelector("#player-strength").textContent =
+    strengthLabels[strength - 1];
+  document.querySelector("#player-speed").textContent = speedLabels[speed - 1];
 
   document.querySelector("#player-team").textContent = "Aguefort Owlbears";
   document.querySelector("#player-motivation").textContent = motivation;
